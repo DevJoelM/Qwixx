@@ -8,6 +8,9 @@
 /httpRequests/
 # Intellij
 /.idea/
+.idea/
+/out/
+out/
 # sbt
 .cache
 .history
