@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/qwixx.iml" filepath="$PROJECT_DIR$/.idea/modules/qwixx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Qwixx.iml" filepath="$PROJECT_DIR$/.idea/modules/Qwixx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Qwixx-build.iml" filepath="$PROJECT_DIR$/.idea/modules/Qwixx-build.iml" />
     </modules>
   </component>
 </project>
