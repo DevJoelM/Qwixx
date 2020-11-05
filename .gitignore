@@ -1,16 +1,21 @@
-
-# Default ignored files
-/shelf/
-/workspace.xml
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
-# Editor-based HTTP Client requests
-/httpRequests/
+# Mac
+.DS_Store
+# Eclipse
+bin/
+.settings/
+.classpath
 # Intellij
-.idea/
+/.idea/
 /out/
-out/
+# Maven
+log/
+target/
+# Gradle
+/.gradle/
+/build/
+pom.xml
+# Application
+/sudoku.log
 # sbt
 .cache
 .history
@@ -29,6 +34,3 @@ project/.sbtserver
 # Scala-IDE specific
 .scala_dependencies
 .worksheet
-# designing
-modelling/.Qwixx - Software Engineering.vpp
-modelling/Qwixx - Software Engineering.vpp.bak_000f
