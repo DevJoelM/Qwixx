@@ -1,0 +1,13 @@
+package src.main.scala
+
+/////////////////////////////////////////////////////////////
+// FileName: Block.scala
+// FileType: Scala Source file
+// Author: Joel Merath, Tim Disch
+// Created On : 05.11.2020
+// Last Modified On : 05.11.2020
+/////////////////////////////////////////////////////////////
+
+class Block {
+
+}
