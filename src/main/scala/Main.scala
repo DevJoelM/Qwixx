@@ -12,7 +12,7 @@ import main.scala.Main.tablePart.tablePart
 
 object Main {
   def main(args: Array[String]): Unit = {
-    println(visualizePlayground())
+    //println(visualizePlayground())
   }
 
   /**

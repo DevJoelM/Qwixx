@@ -1,17 +1,12 @@
 package main.scala
 
 /////////////////////////////////////////////////////////////
-// FileName: Player.scala
+// FileName: Dices.scala
 // FileType: Scala Source file
 // Author: Joel Merath, Tim Disch
-// Created On : 29.10.2020
-// Last Modified On : 29.10.2020
+// Created On : 06.11.2020
+// Last Modified On : 06.11.2020
 /////////////////////////////////////////////////////////////
 
-case class Player (ID:Int, name:String) {
-  val currentScore = 0
-  val isActivePlayer = false
-
-  def setBlock() = {
-  }
+case class Dice (ID:Int, color:String, value:Int) {
 }
