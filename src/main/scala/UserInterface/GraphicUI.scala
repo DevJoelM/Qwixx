@@ -1,13 +1,14 @@
-package main.scala
+
+package UserInterface
 
 /////////////////////////////////////////////////////////////
-// FileName: Block.scala
+// FileName: GraphicUI.scala
 // FileType: Scala Source file
 // Author: Joel Merath, Tim Disch
-// Created On : 29.10.2020
-// Last Modified On : 29.10.2020
+// Created On : 11.11.2020
+// Last Modified On : 11.11.2020
 /////////////////////////////////////////////////////////////
 
-class Block {
+class GraphicUI {
 
 }

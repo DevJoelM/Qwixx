@@ -1,6 +1,5 @@
-package src.test.scala
+package GameplaySpecific
 
-import main.scala.Dice
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
@@ -13,11 +12,5 @@ import org.scalatest.wordspec.AnyWordSpec
 /////////////////////////////////////////////////////////////
 
 class DiceSpec extends AnyWordSpec with Matchers {
-  "A Dice" should {
-    "have a value" in {
-      Dice(0,"#FFFFFF",5).ID should be(0)
-      Dice(0,"#FFFFFF",5).color should be("#FFFFFF")
-      Dice(0,"#FFFFFF",5).value should be(5)
-    }
-  }
+
 }

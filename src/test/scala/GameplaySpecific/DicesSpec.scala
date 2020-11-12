@@ -1,5 +1,4 @@
-package src.test.scala
-import main.scala.Dices
+package GameplaySpecific
 
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
@@ -13,10 +12,5 @@ import org.scalatest.wordspec.AnyWordSpec
 /////////////////////////////////////////////////////////////
 
 class DicesSpec extends AnyWordSpec with Matchers {
-  "A Date" should {
-    "have a year" in {
-      val d  = new Dices
-      d.ThrowDice() shouldBe a[List[_]]
-    }
-  }
+
 }
