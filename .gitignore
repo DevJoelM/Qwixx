@@ -35,3 +35,7 @@ project/.sbtserver
 .scala_dependencies
 .worksheet
 build.sbt
+
+.bsp/sbt.json
+
+Qwixx/Qwixx.iml
