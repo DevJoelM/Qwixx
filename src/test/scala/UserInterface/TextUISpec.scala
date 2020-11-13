@@ -5,7 +5,6 @@ import PlayerSpecific.Player
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
-import scala.io.StdIn
 
 /////////////////////////////////////////////////////////////
 // FileName: TextUISpec.scala
@@ -28,10 +27,10 @@ class TextUISpec extends AnyWordSpec with Matchers {
         tui.visualizePlayground() should include("Green")
         tui.visualizePlayground() should include("Blue")
         tui.visualizePlayground() should include("----------------------------------------------------------------------\n")
+
         tui.playerList(0).block.rawList(0).fieldList(0).checkedState = true
         tui.playerList(0).block.rawList(0).locked = true
         tui.visualizePlayground() should include("❎")
-
       }
     }
   }

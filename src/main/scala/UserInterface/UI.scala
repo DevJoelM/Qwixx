@@ -19,10 +19,18 @@ class UI () {
 
   def createPlayers():List[Player] = {
     var players: List[Player] = List()
-    for(player <- 0 to 1){
+    for(player <- 0 to 0){
       players = Player(player,"") :: players
     }
-    return players.sortBy(_.ID)
+    players.sortBy(_.ID)
   }
-
+  def checkIfGameIsEnded(): Boolean ={
+    var ended = false
+    for(p <- playerList){
+      if(p.block.getLockedRaws() == 2){
+        ended = true
+      }
+    }
+    ended
+  }
 }

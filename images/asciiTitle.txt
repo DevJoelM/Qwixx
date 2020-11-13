@@ -1,0 +1,12 @@
+   ____           _              ____  _       _       __
+  / __ \_      __(_)  ___  __   / __ \(_)___ _(_)___ _/ /
+ / / / / | /| / / / |/_/ |/_/  / / / / / __ `/ / __ `/ /
+/ /_/ /| |/ |/ / />  <_>  <   / /_/ / / /_/ / / /_/ / /
+\___\_\|__/|__/_/_/|_/_/|_|  /_____/_/\__, /_/\__,_/_/
+                                     /____/
+
+Qwixx is a dice game with six dice by Steffen Benndorf, which was
+published in 2012 by Nürnberger-Spielkarten-Verlag.
+This is a Digial-Implementation by Joel Merath and Tim Disch.
+
+All rights belongs to Nürnberger-Spielkarten-Verlag.

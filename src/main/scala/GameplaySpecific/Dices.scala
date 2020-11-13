@@ -13,7 +13,7 @@ import scala.util.Random
 class Dices {
 
   val colorsHex = Array("#FFFFFF","#FFFFFF","#FF0000","#FFFF00","#00FF00","#0000FF")
-  val colorsName = Array("W","W","R","Y","G","B")
+  val colorsName = Array("White","White","Red","Yellow","Green","Blue")
   val dices: Array[Dice] = ThrowDice(null)
 
   def ThrowDice(existingDices:Array[Dice]): Array[Dice] = {

@@ -20,5 +20,20 @@ class Block {
     }
     return raws
   }
-
+  def getCommulatedPoints(): Int ={
+    var res = 0
+    for(r <- rawList){
+      res += r.getRawPoints()
+    }
+    res
+  }
+  def getLockedRaws(): Int = {
+    var res = 0
+    for(r <- rawList){
+      if(r.locked){
+        res += 1
+      }
+    }
+    res
+  }
 }

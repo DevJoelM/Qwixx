@@ -1,6 +1,8 @@
 
 package main.scala
 
+import java.awt.Color;
+
 /////////////////////////////////////////////////////////////
 // FileName: Settings.scala
 // FileType: Scala Source file
@@ -11,4 +13,16 @@ package main.scala
 
 class Settings {
 
+}
+
+object pr{
+  def info(t:String): Unit ={
+    print("INFO: "+t+"\n")
+  }
+  def warning(t:String): Unit ={
+    print("WARNING: "+t+"\n")
+  }
+  def error(t:String): Unit ={
+    print("ERROR: "+t+"\n")
+  }
 }
