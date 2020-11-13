@@ -20,8 +20,4 @@ class Raw (ID:Integer, val colorName:String){
     }
     return fields
   }
-
-  def getCheckedFields(): Int = {
-    return 0
-  }
 }

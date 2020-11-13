@@ -19,6 +19,7 @@ class DicesSpec extends AnyWordSpec with Matchers {
       d.colorsHex shouldBe a[Array[_]]
       d.colorsName shouldBe a[Array[_]]
       d.dices shouldBe a[Array[_]]
+
       var test: Array[Dice] = d.ThrowDice(null)
       var comb: List[Dice] = List()
       for (c <- 0 to 5) {
@@ -27,6 +28,8 @@ class DicesSpec extends AnyWordSpec with Matchers {
         }
       }
       test should contain atLeastOneElementOf (comb.toArray[Dice])
+      d.ThrowDice(test)
+      test shouldBe a[Array[_]]
     }
   }
 }
