@@ -12,5 +12,17 @@ import org.scalatest.wordspec.AnyWordSpec
 /////////////////////////////////////////////////////////////
 
 class PlayerSpec extends AnyWordSpec with Matchers {
-
+  "A Player" when {
+    "not set to any value" should {
+      val d = new Player(1, "Test")
+      "have values" in {
+        d shouldBe a [Player]
+        d.ID should be(1)
+        d.name should be("Test")
+        d.currentScore should be(0);
+        d.isActivePlayer should be(false);
+        d.block shouldBe a[PlayerSpecific.Block]
+      }
+    }
+  }
 }

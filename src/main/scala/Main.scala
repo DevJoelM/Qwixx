@@ -16,7 +16,6 @@ object Main {
   def main(args: Array[String]): Unit = {
 
     val n = new TextUI()
-    n.visualizePlayground();
     n.scanCommands()
 
   }

@@ -25,12 +25,4 @@ class UI () {
     return players.sortBy(_.ID)
   }
 
-  def checkLockState():Unit={
-    for(p <- playerList){
-      for(r <- p.block.rawList){
-
-      }
-    }
-  }
-
 }
