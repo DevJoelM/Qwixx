@@ -1,6 +1,7 @@
 
 package de.htwg.se.qwixx.controller
 import de.htwg.se.qwixx.model.{Dice, Dices, Player}
+import de.htwg.se.qwixx.util.Observable
 
 /////////////////////////////////////////////////////////////
 // FileName: Controller.scala
@@ -10,7 +11,7 @@ import de.htwg.se.qwixx.model.{Dice, Dices, Player}
 // Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
-class Controller() {
+class Controller() extends Observable {
 
   val playerList = createPlayers()
   val dices = new Dices()
@@ -76,8 +77,8 @@ class Controller() {
 
   //Dice commands
   def throwDices(): Unit = {
-    dices.throwDices(false)
-    dices.throwDices(true)
+    dices.throwDices()
+    dices.throwDices()
     dices.updateDiceCombinations()
   }
 

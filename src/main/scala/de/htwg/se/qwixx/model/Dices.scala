@@ -16,11 +16,12 @@ class Dices {
   val dDiceCount: Int = 2
   val colorsHex = Array("#FFFFFF","#FFFFFF","#FF0000","#FFFF00","#00FF00","#0000FF")
   val colorsName = Array("White","White","Red","Yellow","Green","Blue")
-  val defaultDices: Array[Dice] = throwDices(false)
-  val coloredDices: Array[Dice] = throwDices(true)
+  val defaultDices: Array[Dice] = Array.ofDim[Dice](2)
+  val coloredDices: Array[Dice] = Array.ofDim[Dice](4)
   var combinations: List[((String,Int),(Dice, Dice))] = List()
+  throwDices()
 
-  def throwDices(colored:Boolean): Array[Dice] = {
+  def throwDices(): Unit = {
     val random = new Random
 
     def throwSpecificDices(dices:Array[Dice],len:Int): Array[Dice] = {
@@ -40,15 +41,12 @@ class Dices {
     def getIndexOffset(len:Int): Int ={
       if(len == 2) 0 else 2
     }
-
-    if(colored){
-      throwSpecificDices(coloredDices, cDiceCount)
-    } else {
-      throwSpecificDices(defaultDices, dDiceCount)
-    }
+    throwSpecificDices(coloredDices, cDiceCount)
+    throwSpecificDices(defaultDices, dDiceCount)
   }
 
   def updateDiceCombinations(): Unit ={
+    combinations = List()
     for(dd <- defaultDices){
       for(dd_secound <- defaultDices){
         if(dd.ID != dd_secound.ID){

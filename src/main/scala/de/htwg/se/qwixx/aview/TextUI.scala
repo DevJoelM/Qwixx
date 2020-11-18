@@ -90,35 +90,3 @@ class TextUI(controller: Controller) {
     sb.toString()
   }
 }
-
-/*
- def scanCommands(): Boolean = { //param.: bool //return: String //rec
-    println()
-    print(visualizePlayground())
-    breakable {
-      while (true) {
-        val cmd = scala.io.StdIn.readLine().split(" ")
-        if (cmd(0) == "") {
-          break
-        } else if (cmd.size == 1 && cmd(0) == "t") {
-          dices.ThrowDice(dices.dices)
-        } else if (cmd.size == 1 && cmd(0) == "exit") {
-          break
-        } else if (cmd(2) == "l") {
-          playerList(cmd(0).toInt - 1).block.rawList(cmd(1).toInt - 1).lockRaw();
-        } else {
-          playerList(cmd(0).toInt - 1).block.rawList(cmd(1).toInt - 1).checkField(cmd(2).toInt - 1)
-        }
-        print("\n")
-        if(checkIfGameIsEnded()){
-          print(visualizePlayground())
-          print("\nGame Finished!")
-          break()
-        } else {
-          print(visualizePlayground())
-        }
-      }
-    }
-    true
-  }
-* */
