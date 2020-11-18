@@ -1,4 +1,4 @@
-package PlayerSpecific
+package de.htwg.se.qwixx.model
 
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
@@ -21,7 +21,7 @@ class PlayerSpec extends AnyWordSpec with Matchers {
         d.name should be("Test")
         d.currentScore should be(0);
         d.isActivePlayer should be(false);
-        d.block shouldBe a[PlayerSpecific.Block]
+        d.block shouldBe a[Block]
       }
     }
   }

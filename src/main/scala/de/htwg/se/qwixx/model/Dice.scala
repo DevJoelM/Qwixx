@@ -1,11 +1,11 @@
-package PlayerSpecific
+package de.htwg.se.qwixx.model
 
 /////////////////////////////////////////////////////////////
-// FileName: Field.scala
+// FileName: Dice.scala
 // FileType: Scala Source file
 // Author: Joel Merath, Tim Disch
-// Created On : 29.10.2020
-// Last Modified On : 29.10.2020
+// Created On: 06.11.2020
+// Last Modified On : 06.11.2020
 /////////////////////////////////////////////////////////////
 
-class Field (var value:Int, var checkedState: Boolean,var blockedState:Boolean){}
+case class Dice(ID: Int, colorHex: String, colorName: String, value: Int) {}

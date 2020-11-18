@@ -1,4 +1,4 @@
-package main.scala
+package de.htwg.se
 
 import UserInterface._
 
@@ -21,13 +21,14 @@ object UserInterfaces extends Enumeration {
 object Main {
 
   def main(args: Array[String]): Unit = {
+    val controller = new Controller
     runInitializationScreen() match {
       case 1 =>{
-        val tui = new TextUI()
+        val tui = new TextUI(controller)
         tui.scanCommands()
       }
       case 2 =>{
-        new GraphicUI()
+        new GraphicUI(controller)
       }
     }
   }

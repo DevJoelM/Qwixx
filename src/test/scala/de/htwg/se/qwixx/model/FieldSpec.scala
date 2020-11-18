@@ -1,16 +1,16 @@
-package GameplaySpecific
+package de.htwg.se.qwixx.model
 
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
 /////////////////////////////////////////////////////////////
-// FileName: DiceSpec.scala
+// FileName: FieldSpec.scala
 // FileType: Scala-Test Source file
 // Author: Joel Merath, Tim Disch
-// Created On : 06.11.2020
-// Last Modified On : 06.11.2020
+// Created On : 12.11.2020
+// Last Modified On : 12.11.2020
 /////////////////////////////////////////////////////////////
 
-class DiceSpec extends AnyWordSpec with Matchers {
+class FieldSpec extends AnyWordSpec with Matchers{
 
 }

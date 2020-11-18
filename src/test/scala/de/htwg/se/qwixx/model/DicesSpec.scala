@@ -1,4 +1,4 @@
-package GameplaySpecific
+package de.htwg.se.qwixx.model
 
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
@@ -13,6 +13,7 @@ import org.scalatest.wordspec.AnyWordSpec
 /////////////////////////////////////////////////////////////
 
 class DicesSpec extends AnyWordSpec with Matchers {
+  /*
   "A Dice" should {
     "should have" in {
       val d = new Dices
@@ -20,7 +21,7 @@ class DicesSpec extends AnyWordSpec with Matchers {
       d.colorsName shouldBe a[Array[_]]
       d.dices shouldBe a[Array[_]]
 
-      var test: Array[Dice] = d.ThrowDice(null)
+      var test: Array[Dice] = d.throwDices(null)
       var comb: List[Dice] = List()
       for (c <- 0 to 5) {
         for (v <- 1 to 6) {
@@ -28,8 +29,10 @@ class DicesSpec extends AnyWordSpec with Matchers {
         }
       }
       test should contain atLeastOneElementOf (comb.toArray[Dice])
-      d.ThrowDice(test)
+      d.throwDices(test)
       test shouldBe a[Array[_]]
     }
   }
+  */
+
 }

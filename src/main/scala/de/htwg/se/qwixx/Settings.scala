@@ -1,7 +1,5 @@
 
-package main.scala
-
-import java.awt.Color;
+package de.htwg.se;
 
 /////////////////////////////////////////////////////////////
 // FileName: Settings.scala

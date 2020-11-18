@@ -1,16 +1,17 @@
-package PlayerSpecific
+package de.htwg.se.qwixx
 
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
 /////////////////////////////////////////////////////////////
-// FileName: RawSpec.scala
+// FileName: ControllerSpec.scala
 // FileType: Scala-Test Source file
 // Author: Joel Merath, Tim Disch
 // Created On : 12.11.2020
 // Last Modified On : 12.11.2020
 /////////////////////////////////////////////////////////////
 
-class RawSpec extends AnyWordSpec with Matchers{
+class ControllerSpec extends AnyWordSpec with Matchers {
+
 
 }
