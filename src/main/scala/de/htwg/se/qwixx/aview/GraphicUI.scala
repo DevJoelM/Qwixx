@@ -1,5 +1,7 @@
 
-package UserInterface
+package de.htwg.se.qwixx.aview
+
+import de.htwg.se.qwixx.controller.Controller
 
 /////////////////////////////////////////////////////////////
 // FileName: GraphicUI.scala

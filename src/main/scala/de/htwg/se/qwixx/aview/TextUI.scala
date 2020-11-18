@@ -1,13 +1,14 @@
-package UserInterface
+package de.htwg.se.qwixx.aview
 
-import util.control.Breaks._
+import de.htwg.se.qwixx.controller.Controller
+import scala.util.control.Breaks._
 
 /////////////////////////////////////////////////////////////
 // FileName: TextUI.scala
 // FileType: Scala Source file
 // Author: Joel Merath, Tim Disch
 // Created On : 11.11.2020
-// Last Modified On : 13.11.2020
+// Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
 class TextUI(controller: Controller) {
@@ -25,9 +26,14 @@ class TextUI(controller: Controller) {
         } else if (cmd.size == 1 && cmd(0) == "exit") {
           break
         } else if (cmd(2) == "l") {
-          controller.lockRaw(cmd(0).toInt - 1,cmd(1).toInt - 1)
+          print(controller.lockRow(cmd(0).toInt - 1,cmd(1).toInt - 1)._2)
         } else {
-          controller.checkField(cmd(0).toInt - 1,cmd(1).toInt - 1,cmd(2).toInt - 1)
+          val res = controller.isFieldCheckable(cmd(0).toInt - 1,cmd(1).toInt - 1,cmd(2).toInt - 1)
+          if(res._1) {
+            print(controller.checkField(cmd(0).toInt - 1, cmd(1).toInt - 1, cmd(2).toInt - 1)._2)
+          } else {
+            print(res._2)
+          }
         }
         print("\n")
         if(controller.checkIfGameIsEnded()){
@@ -54,7 +60,9 @@ class TextUI(controller: Controller) {
       sb.append("".padTo(70,"─").mkString+"\n")
       sb.append(("PLAYER " + (c.ID+1).toString))
       sb.append("".padTo(50," ").mkString + "Points: "+ controller.getPlayerPoints(c.ID) + "\n")
-
+      sb.append("".padTo(70,"─").mkString+"\n")
+      sb.append("Index".padTo(8," ").mkString+"|  ")
+      sb.append("1    2    3    4    5    6    7    8     9   10   11   L\n")
       sb.append("".padTo(70,"─").mkString+"\n")
       for (row <- c.block.rowList){
         sb.append(row.colorName.padTo(8," ").mkString+"|  ")
@@ -76,11 +84,9 @@ class TextUI(controller: Controller) {
       }
     }
     sb.append("".padTo(70,"─").mkString+"\n")
-
     for(dice <- controller.getDicesList()){
       sb.append(dice.colorName+":"+dice.value+pad)
     }
-
     sb.toString()
   }
 }

@@ -1,4 +1,4 @@
-package de.htwg.se.model
+package de.htwg.se.qwixx.model
 
 /////////////////////////////////////////////////////////////
 // FileName: Field.scala
@@ -8,4 +8,4 @@ package de.htwg.se.model
 // Last Modified On : 29.10.2020
 /////////////////////////////////////////////////////////////
 
-class Field (fieldIdx:Int, var value:Int, var checkedState: Boolean,var blockedState:Boolean){}
+class Field (var fieldIdx:Int, var value:Int, var checkedState: Boolean,var blockedState:Boolean){}

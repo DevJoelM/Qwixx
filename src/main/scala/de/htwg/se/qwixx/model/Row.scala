@@ -1,7 +1,7 @@
 package de.htwg.se.qwixx.model
 
 /////////////////////////////////////////////////////////////
-// FileName: Raw.scala
+// FileName: Row.scala
 // FileType: Scala Source file
 // Author: Joel Merath, Tim Disch
 // Created On : 29.10.2020

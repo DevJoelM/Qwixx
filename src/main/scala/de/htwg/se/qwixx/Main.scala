@@ -1,6 +1,7 @@
-package de.htwg.se
+package de.htwg.se.qwixx
 
-import UserInterface._
+import de.htwg.se.qwixx.aview.{GraphicUI, TextUI}
+import de.htwg.se.qwixx.controller.Controller
 
 import scala.io.Source
 
@@ -38,13 +39,18 @@ object Main {
       println()
       print(line)
     }
-    val id = checkInput()
+    val id = checkInput("t")
     id
   }
 
-  def checkInput(): Int ={
+  def checkInput(default:String): Int ={
     print("\n\nTo run, enter <T/t> for TextUI or <G/g> for GraphicUI. \n(T/G)?: ")
-    val cmd = scala.io.StdIn.readLine()
+    var cmd = ""
+    if(default=="") {
+       cmd = scala.io.StdIn.readLine()
+    } else {
+       cmd = default
+    }
     var ui = 0
     if(cmd.equals("T")||cmd.equals("t")){
       ui = UserInterfaces.TextUI.id
@@ -54,7 +60,7 @@ object Main {
       pr.info("TextUI will be initialized...")
     } else {
       pr.error("Input not allowed!")
-      ui = checkInput()
+      ui = checkInput("")
     }
     ui
   }

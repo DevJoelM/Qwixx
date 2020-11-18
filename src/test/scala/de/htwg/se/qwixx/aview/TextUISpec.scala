@@ -1,8 +1,6 @@
-package UserInterface
-import java.io.ByteArrayInputStream
+package de.htwg.se.qwixx.aview
 
-import de.htwg.se.qwixx.Controller
-import de.htwg.se.qwixx.aview.TextUI
+import de.htwg.se.qwixx.controller.Controller
 import de.htwg.se.qwixx.model.Player
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec

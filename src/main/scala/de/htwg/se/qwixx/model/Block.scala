@@ -1,4 +1,4 @@
-package de.htwg.se.model
+package de.htwg.se.qwixx.model
 
 /////////////////////////////////////////////////////////////
 // FileName: Block.scala

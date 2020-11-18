@@ -1,5 +1,5 @@
 
-package de.htwg.se;
+package de.htwg.se.qwixx
 
 /////////////////////////////////////////////////////////////
 // FileName: Settings.scala
