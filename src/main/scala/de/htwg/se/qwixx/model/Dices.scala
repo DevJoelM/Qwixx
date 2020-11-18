@@ -21,7 +21,7 @@ class Dices {
   var combinations: List[((String,Int),(Dice, Dice))] = List()
   throwDices()
 
-  def throwDices(): Unit = {
+  def throwDices(): Boolean = {
     val random = new Random
 
     def throwSpecificDices(dices:Array[Dice],len:Int): Array[Dice] = {
@@ -29,9 +29,7 @@ class Dices {
       for (diceIdx <- 0 to len-1) {
         val idxOffset = getIndexOffset(len)
         val nd = Dice(diceIdx+idxOffset, colorsHex(diceIdx+idxOffset), colorsName(diceIdx+idxOffset), random.nextInt(5) + 1)
-        if (dices == null) {
-          newDices(diceIdx) = nd
-        } else if(dices != null) {
+        if(dices != null) {
           dices(diceIdx) = nd
         }
       }
@@ -43,6 +41,8 @@ class Dices {
     }
     throwSpecificDices(coloredDices, cDiceCount)
     throwSpecificDices(defaultDices, dDiceCount)
+
+    true
   }
 
   def updateDiceCombinations(): Unit ={

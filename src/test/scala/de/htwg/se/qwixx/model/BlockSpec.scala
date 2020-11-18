@@ -8,9 +8,22 @@ import org.scalatest.wordspec.AnyWordSpec
 // FileType: Scala-Test Source file
 // Author: Joel Merath, Tim Disch
 // Created On : 05.11.2020
-// Last Modified On : 05.11.2020
+// Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
 class BlockSpec extends AnyWordSpec with Matchers {
+  "A Block" should {
+    "should look like" in {
+      val b  = new Block
+      b.createRowList() shouldBe a [Array[_]]
+      b.getLockedRows() should be(0)
+      b.getCommulatedPoints() should be(0)
+      b.getSplittedPoints() shouldBe a[List[_]]
+      b.rowList(0).locked = true
+      b.getLockedRows() should be(1)
 
+
+
+    }
+  }
 }

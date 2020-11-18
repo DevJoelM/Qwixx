@@ -8,7 +8,7 @@ package de.htwg.se.qwixx.model
 // Last Modified On : 29.10.2020
 /////////////////////////////////////////////////////////////
 
-class Row (rowIdx:Integer, val colorName:String){
+class Row (val rowIdx:Integer, val colorName:String){
 
   val fieldList = fillFieldList()
   var locked:Boolean = false
@@ -16,12 +16,12 @@ class Row (rowIdx:Integer, val colorName:String){
   //Row
   def lockRow(): (Boolean,String) = {
     if(!locked){
-      if(getCheckedFieldCount()>5) {
+      if(getCheckedFieldCount()>=5) {
         locked = true
         updateFields()
-        (true, String.format("Raw (%s) successfully locked!", (rowIdx+1).toString))
+        (true, String.format("Row (%s) successfully locked!", (rowIdx+1).toString))
       } else {
-        (false, String.format("Not enough fields in raw (%s) checked!", (rowIdx+1).toString))
+        (false, String.format("Not enough fields in row (%s) checked!", (rowIdx+1).toString))
       }
     } else {
       (false, String.format("Row (%s) is already locked!", (rowIdx+1).toString))
@@ -52,23 +52,24 @@ class Row (rowIdx:Integer, val colorName:String){
     }
   }
 
-  def updateFields():Unit= {
-    if(locked){
-      for (f <- fieldList) {
-        if(f.checkedState==false){
+  def updateFields() : Array[Field] = {
+    if (locked) {
+      for (f <- fieldList.toList) {
+        if (!f.checkedState) {
           f.blockedState = true
         }
       }
     }
     var foundLastCheckedField = false
-    for (f <- fieldList.reverse){
-      if(!foundLastCheckedField && f.checkedState){
+    for (f <- fieldList.reverse) {
+      if (!foundLastCheckedField && f.checkedState) {
         foundLastCheckedField = true
       }
-      if(foundLastCheckedField && f.checkedState==false){
+      if (foundLastCheckedField && f.checkedState == false) {
         f.blockedState = true
       }
     }
+    fieldList
   }
 
   def getCheckedFieldCount(): Int = {
@@ -76,7 +77,7 @@ class Row (rowIdx:Integer, val colorName:String){
   }
 
   //Points
-  def getRawPoints(): Int ={
+  def getRowPoints(): Int ={
     val pointsPerCheck = Array(2,3,6,10,15,21,28,36,45,55,66,78)
     var checkCount = 0
     for(f <- fieldList){

@@ -13,39 +13,35 @@ import scala.util.control.Breaks._
 
 class TextUI(controller: Controller) {
 
-  def scanCommands(): Boolean = { //param.: bool //return: String //rec
-    println()
-    print(visualizePlayground())
+  def processInputCommands(pcmd:String, stringBuilder: StringBuilder): String = {
     breakable {
-      while (true) {
-        val cmd = scala.io.StdIn.readLine().split(" ")
-        if (cmd(0) == "") {
-          break
-        } else if (cmd.size == 1 && cmd(0) == "t") {
-          controller.throwDices()
-        } else if (cmd.size == 1 && cmd(0) == "exit") {
-          break
-        } else if (cmd(2) == "l") {
-          print(controller.lockRow(cmd(0).toInt - 1,cmd(1).toInt - 1)._2)
+      val cmd = pcmd.split(" ")
+      if (cmd(0) == "") {
+        break
+      } else if (cmd.size == 1 && cmd(0) == "t") {
+        controller.throwDices()
+      } else if (cmd.size == 1 && cmd(0) == "exit") {
+        break
+      } else if (cmd(2) == "l") {
+        stringBuilder.append("\n" + controller.lockRow(cmd(0).toInt - 1,cmd(1).toInt - 1)._2)
+      } else {
+        val res = controller.isFieldCheckable(cmd(0).toInt - 1,cmd(1).toInt - 1,cmd(2).toInt - 1)
+        if(res._1) {
+          stringBuilder.append("\n" + controller.checkField(cmd(0).toInt - 1, cmd(1).toInt - 1, cmd(2).toInt - 1)._2)
         } else {
-          val res = controller.isFieldCheckable(cmd(0).toInt - 1,cmd(1).toInt - 1,cmd(2).toInt - 1)
-          if(res._1) {
-            print(controller.checkField(cmd(0).toInt - 1, cmd(1).toInt - 1, cmd(2).toInt - 1)._2)
-          } else {
-            print(res._2)
-          }
-        }
-        print("\n")
-        if(controller.checkIfGameIsEnded()){
-          print(visualizePlayground())
-          print("\nGame Finished!")
-          break()
-        } else {
-          print(visualizePlayground())
+          stringBuilder.append(res._2)
         }
       }
+      stringBuilder.append("\n")
+      if(controller.checkIfGameIsEnded()){
+        stringBuilder.append(visualizePlayground())
+        stringBuilder.append("\nGame Finished!")
+        break()
+      } else {
+        stringBuilder.append(visualizePlayground())
+      }
     }
-    true
+    stringBuilder.toString()
   }
 
   /**

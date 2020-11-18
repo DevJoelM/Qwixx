@@ -20,7 +20,7 @@ class Controller() extends Observable {
   def checkIfGameIsEnded(): Boolean = {
     var ended = false
     for(p <- playerList){
-      if(p.block.getLockedRaws() == 2){
+      if(p.block.getLockedRows() == 2){
         ended = true
       }
     }
@@ -28,37 +28,37 @@ class Controller() extends Observable {
   }
 
   //Field commands
-  def checkField(playerID:Int, rawID:Int, fieldID: Int): (Boolean,String) = {
-    val checkable = isCombinationCheckable(playerID,rawID,fieldID)
+  def checkField(playerID:Int, rowID:Int, fieldID: Int): (Boolean,String) = {
+    val checkable = isCombinationCheckable(playerID,rowID,fieldID)
     if(checkable._1){
-      val raw = playerList(playerID).block.rowList(rawID)
-      raw.checkField(fieldID)
-      raw.updateFields()
+      val row = playerList(playerID).block.rowList(rowID)
+      row.checkField(fieldID)
+      row.updateFields()
     }
     checkable
   }
 
   def isFieldCheckable(playerID:Int, rowID:Int, fieldID:Int) : (Boolean,String) = {
     val openFields = playerList(playerID).block.rowList(rowID).getOpenFields()
-    val raw = playerList(playerID).block.rowList(rowID)
+    val row = playerList(playerID).block.rowList(rowID)
     if(openFields.find(_._1 == fieldID)==None){
       (false, String.format("Row (%s), Field (%s) is not checkable!", rowID.toString,
-        raw.fieldList(rowID).value.toString))
+        row.fieldList(rowID).value.toString))
     } else {
       (true, String.format("Row (%s), Field (%s) is checkable!", rowID.toString,
-        raw.fieldList(rowID).value.toString))
+        row.fieldList(rowID).value.toString))
     }
   }
 
   def isCombinationCheckable(playerID:Int, rowID:Int, fieldID:Int): (Boolean, String)= {
     dices.updateDiceCombinations()
-    val raw = playerList(playerID).block.rowList(rowID)
+    val row = playerList(playerID).block.rowList(rowID)
     val checkable = isFieldCheckable(playerID,rowID,fieldID)
     if(checkable._1){
-      val passedCombination = (raw.colorName,raw.fieldList(fieldID).value)
+      val passedCombination = (row.colorName,row.fieldList(fieldID).value)
       val cCombination = dices.combinations.find(_._1 == passedCombination)
       val dCombination = dices.combinations.find(_._1 ==
-        (dices.defaultDices(0).colorName,raw.fieldList(fieldID).value))
+        (dices.defaultDices(0).colorName,row.fieldList(fieldID).value))
       if(dCombination!=None){
         return (true, String.format("Combination %s works!",dCombination.get._1))
       } else  if(cCombination!=None) {
@@ -70,7 +70,7 @@ class Controller() extends Observable {
     (checkable._1,checkable._2)
   }
 
-  //Raw commands
+  //Row commands
   def lockRow(playerID:Int, rowID:Int): (Boolean,String) = {
     playerList(playerID).block.rowList(rowID).lockRow()
   }

@@ -4,6 +4,7 @@ import de.htwg.se.qwixx.aview.{GraphicUI, TextUI}
 import de.htwg.se.qwixx.controller.Controller
 
 import scala.io.Source
+import scala.io.StdIn.readLine
 
 /////////////////////////////////////////////////////////////
 // FileName: Main.scala
@@ -21,12 +22,22 @@ object UserInterfaces extends Enumeration {
 
 object Main {
 
+  val controller = new Controller
+  controller.notifyObservers
+
   def main(args: Array[String]): Unit = {
-    val controller = new Controller
+
     runInitializationScreen() match {
       case 1 =>{
         val tui = new TextUI(controller)
-        tui.scanCommands()
+        val stringBuilder = new StringBuilder
+        var input: String = ""
+        print(tui.visualizePlayground())
+        do {
+          input = readLine()
+          stringBuilder.clear()
+          print(tui.processInputCommands(input,stringBuilder))
+        } while (input != "exit")
       }
       case 2 =>{
         new GraphicUI(controller)
@@ -39,7 +50,7 @@ object Main {
       println()
       print(line)
     }
-    val id = checkInput("t")
+    val id = checkInput("")
     id
   }
 
