@@ -1,5 +1,6 @@
 
 package de.htwg.se.qwixx.controller
+
 import de.htwg.se.qwixx.model.{Dice, Dices, Player}
 import de.htwg.se.qwixx.util.Observable
 

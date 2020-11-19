@@ -15,6 +15,7 @@ import org.scalatest.wordspec.AnyWordSpec
 /////////////////////////////////////////////////////////////
 
 class TextUISpec extends AnyWordSpec with Matchers {
+  /*
   "A UI" when {
     "TextUI is used" should {
       val ui = new Controller
@@ -33,5 +34,5 @@ class TextUISpec extends AnyWordSpec with Matchers {
         //tui.visualizePlayground() should include("❎")
       }
     }
-  }
+    */
 }
