@@ -9,7 +9,5 @@ package de.htwg.se.qwixx.model
 /////////////////////////////////////////////////////////////
 
 case class Player(ID: Int, name: String) {
-  val currentScore = 0
-  val isActivePlayer = false
   val block = new Block()
 }

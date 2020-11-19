@@ -18,7 +18,6 @@ class Dices {
   val colorsName = Array("White","White","Red","Yellow","Green","Blue")
   val defaultDices: Array[Dice] = Array.ofDim[Dice](2)
   val coloredDices: Array[Dice] = Array.ofDim[Dice](4)
-  var combinations: List[((String,Int),(Dice, Dice))] = List()
   throwDices()
 
   def throwDices(): Boolean = {
@@ -45,8 +44,8 @@ class Dices {
     true
   }
 
-  def updateDiceCombinations(): Unit ={
-    combinations = List()
+  def updateDiceCombinations(): List[((String,Int),(Dice, Dice))] ={
+    var combinations: List[((String,Int),(Dice, Dice))] = List()
     for(dd <- defaultDices){
       for(dd_secound <- defaultDices){
         if(dd.ID != dd_secound.ID){
@@ -57,6 +56,7 @@ class Dices {
         combinations = ((cd.colorName,dd.value+cd.value),(dd,cd)) :: combinations
       }
     }
+    combinations
   }
 
 }

@@ -19,9 +19,8 @@ class PlayerSpec extends AnyWordSpec with Matchers {
         d shouldBe a [Player]
         d.ID should be(1)
         d.name should be("Test")
-        d.currentScore should be(0);
-        d.isActivePlayer should be(false);
         d.block shouldBe a[Block]
+        assert(d.block.isInstanceOf[Block])
       }
     }
   }

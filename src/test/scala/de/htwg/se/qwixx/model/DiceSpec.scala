@@ -12,5 +12,4 @@ import org.scalatest.wordspec.AnyWordSpec
 /////////////////////////////////////////////////////////////
 
 class DiceSpec extends AnyWordSpec with Matchers {
-
 }

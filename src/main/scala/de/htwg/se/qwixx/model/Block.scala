@@ -18,7 +18,7 @@ class Block {
     for(r <- 1 to 4){
       raws(r-1) = new Row(r,avaibleRowColorNames(r-1))
     }
-    return raws
+    raws
   }
   def getLockedRows(): Int = {
     var res = 0

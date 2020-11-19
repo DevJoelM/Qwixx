@@ -25,6 +25,7 @@ class Controller() extends Observable {
         ended = true
       }
     }
+    notifyObservers
     ended
   }
 
@@ -36,6 +37,7 @@ class Controller() extends Observable {
       row.checkField(fieldID)
       row.updateFields()
     }
+    notifyObservers
     checkable
   }
 
@@ -43,9 +45,11 @@ class Controller() extends Observable {
     val openFields = playerList(playerID).block.rowList(rowID).getOpenFields()
     val row = playerList(playerID).block.rowList(rowID)
     if(openFields.find(_._1 == fieldID)==None){
+      notifyObservers
       (false, String.format("Row (%s), Field (%s) is not checkable!", rowID.toString,
         row.fieldList(rowID).value.toString))
     } else {
+      notifyObservers
       (true, String.format("Row (%s), Field (%s) is checkable!", rowID.toString,
         row.fieldList(rowID).value.toString))
     }
@@ -57,8 +61,9 @@ class Controller() extends Observable {
     val checkable = isFieldCheckable(playerID,rowID,fieldID)
     if(checkable._1){
       val passedCombination = (row.colorName,row.fieldList(fieldID).value)
-      val cCombination = dices.combinations.find(_._1 == passedCombination)
-      val dCombination = dices.combinations.find(_._1 ==
+      val comb = dices.updateDiceCombinations()
+      val cCombination = comb.find(_._1 == passedCombination)
+      val dCombination = comb.find(_._1 ==
         (dices.defaultDices(0).colorName,row.fieldList(fieldID).value))
       if(dCombination!=None){
         return (true, String.format("Combination %s works!",dCombination.get._1))
@@ -68,11 +73,13 @@ class Controller() extends Observable {
         return (false, String.format("Combination %s doesn't work!",passedCombination))
       }
     }
+    notifyObservers
     (checkable._1,checkable._2)
   }
 
   //Row commands
   def lockRow(playerID:Int, rowID:Int): (Boolean,String) = {
+    notifyObservers
     playerList(playerID).block.rowList(rowID).lockRow()
   }
 
@@ -81,15 +88,17 @@ class Controller() extends Observable {
     dices.throwDices()
     dices.throwDices()
     dices.updateDiceCombinations()
+    notifyObservers
   }
 
   def getDicesList(): List[Dice] = {
+    notifyObservers
     dices.defaultDices.toList++dices.coloredDices.toList
   }
 
   def getDiceCombinations(): List[((String,Int),(Dice,Dice))] = {
+    notifyObservers
     dices.updateDiceCombinations()
-    dices.combinations
   }
 
   //Player commands
@@ -98,18 +107,22 @@ class Controller() extends Observable {
     for(player <- 0 to 0){
       players = Player(player,"") :: players
     }
+    notifyObservers
     players.sortBy(_.ID)
   }
 
   def getPlayerName(playerID:Int):String = {
+    notifyObservers
     playerList(playerID).name
   }
 
   def getPlayerPoints(playerID:Int):Int = {
+    notifyObservers
     playerList(playerID).block.getCommulatedPoints()
   }
 
   def getPlayerSplittedPoints(playerID:Int):List[(String,Int)] = {
+    notifyObservers
     playerList(playerID).block.getSplittedPoints()
   }
 

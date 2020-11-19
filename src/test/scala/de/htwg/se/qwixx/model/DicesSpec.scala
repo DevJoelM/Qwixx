@@ -25,7 +25,6 @@ class DicesSpec extends AnyWordSpec with Matchers {
       d.defaultDices shouldBe a[Array[_]]
       d.throwDices() should be(true)
       d.updateDiceCombinations()
-      d.combinations shouldBe a[List[_]]
       d.defaultDices
     }
   }
