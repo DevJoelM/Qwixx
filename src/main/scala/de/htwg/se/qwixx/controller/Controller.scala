@@ -18,6 +18,10 @@ class Controller() extends Observable {
   val dices = new Dices()
 
   //Runtime
+  def updateGame(): Unit = {
+    notifyObservers
+  }
+
   def checkIfGameIsEnded(): Boolean = {
     var ended = false
     for(p <- playerList){
@@ -25,7 +29,6 @@ class Controller() extends Observable {
         ended = true
       }
     }
-    notifyObservers
     ended
   }
 
@@ -45,11 +48,9 @@ class Controller() extends Observable {
     val openFields = playerList(playerID).block.rowList(rowID).getOpenFields()
     val row = playerList(playerID).block.rowList(rowID)
     if(openFields.find(_._1 == fieldID)==None){
-      notifyObservers
       (false, String.format("Row (%s), Field (%s) is not checkable!", rowID.toString,
         row.fieldList(rowID).value.toString))
     } else {
-      notifyObservers
       (true, String.format("Row (%s), Field (%s) is checkable!", rowID.toString,
         row.fieldList(rowID).value.toString))
     }
@@ -73,7 +74,6 @@ class Controller() extends Observable {
         return (false, String.format("Combination %s doesn't work!",passedCombination))
       }
     }
-    notifyObservers
     (checkable._1,checkable._2)
   }
 
@@ -91,12 +91,10 @@ class Controller() extends Observable {
   }
 
   def getDicesList(): List[Dice] = {
-    notifyObservers
     dices.defaultDices.toList++dices.coloredDices.toList
   }
 
   def getDiceCombinations(): List[((String,Int),(Dice,Dice))] = {
-    notifyObservers
     dices.updateDiceCombinations()
   }
 
@@ -106,22 +104,18 @@ class Controller() extends Observable {
     for(player <- 0 to 0){
       players = Player(player,"", new Block) :: players
     }
-    notifyObservers
     players.sortBy(_.ID)
   }
 
   def getPlayerName(playerID:Int):String = {
-    notifyObservers
     playerList(playerID).name
   }
 
   def getPlayerPoints(playerID:Int):Int = {
-    notifyObservers
     playerList(playerID).block.getCommulatedPoints()
   }
 
   def getPlayerSplittedPoints(playerID:Int):List[(String,Int)] = {
-    notifyObservers
     playerList(playerID).block.getSplittedPoints()
   }
 

@@ -1,6 +1,8 @@
 package de.htwg.se.qwixx.aview
 
 import de.htwg.se.qwixx.controller.Controller
+import de.htwg.se.qwixx.util.Observer
+
 import scala.util.control.Breaks._
 
 /////////////////////////////////////////////////////////////
@@ -11,7 +13,13 @@ import scala.util.control.Breaks._
 // Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
-class TextUI(controller: Controller) {
+class TextUI(controller: Controller) extends Observer{
+
+  controller.add(this)
+
+  def update: Unit = {
+    print(visualizePlayground())
+  }
 
   def processInputCommands(pcmd:String, stringBuilder: StringBuilder): String = {
     breakable {
@@ -33,11 +41,9 @@ class TextUI(controller: Controller) {
       }
       stringBuilder.append("\n")
       if(controller.checkIfGameIsEnded()){
-        stringBuilder.append(visualizePlayground())
         stringBuilder.append("\nGame Finished!")
         break()
       } else {
-        stringBuilder.append(visualizePlayground())
       }
     }
     stringBuilder.toString()
@@ -48,7 +54,7 @@ class TextUI(controller: Controller) {
    * @return Multiline string for output.
    */
   def visualizePlayground(): String = {
-    var sb = new StringBuilder()
+    val sb = new StringBuilder()
     val pad = "   "
     for(c <- controller.playerList){
       println()

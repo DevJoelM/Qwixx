@@ -32,11 +32,12 @@ object Main {
         val tui = new TextUI(controller)
         val stringBuilder = new StringBuilder
         var input: String = ""
-        print(tui.visualizePlayground())
+        controller.updateGame()
         do {
           input = readLine()
           stringBuilder.clear()
           print(tui.processInputCommands(input,stringBuilder))
+          controller.updateGame()
         } while (input != "exit")
       }
       case 2 =>{
