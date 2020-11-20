@@ -21,6 +21,10 @@ class TextUI(controller: Controller) extends Observer{
     print(visualizePlayground())
   }
 
+  /**
+   * Method to returns a message to a given command.
+   * @return Message
+   */
   def processInputCommands(pcmd:String, stringBuilder: StringBuilder): String = {
     breakable {
       val cmd = pcmd.split(" ")
@@ -43,7 +47,6 @@ class TextUI(controller: Controller) extends Observer{
       if(controller.checkIfGameIsEnded()){
         stringBuilder.append("\nGame Finished!")
         break()
-      } else {
       }
     }
     stringBuilder.toString()

@@ -21,7 +21,6 @@ class Controller() extends Observable {
   def updateGame(): Unit = {
     notifyObservers
   }
-
   def checkIfGameIsEnded(): Boolean = {
     var ended = false
     for(p <- playerList){
@@ -43,7 +42,6 @@ class Controller() extends Observable {
     notifyObservers
     checkable
   }
-
   def isFieldCheckable(playerID:Int, rowID:Int, fieldID:Int) : (Boolean,String) = {
     val openFields = playerList(playerID).block.rowList(rowID).getOpenFields()
     val row = playerList(playerID).block.rowList(rowID)
@@ -55,7 +53,6 @@ class Controller() extends Observable {
         row.fieldList(rowID).value.toString))
     }
   }
-
   def isCombinationCheckable(playerID:Int, rowID:Int, fieldID:Int): (Boolean, String)= {
     dices.updateDiceCombinations()
     val row = playerList(playerID).block.rowList(rowID)
@@ -89,11 +86,9 @@ class Controller() extends Observable {
     dices.throwDices()
     notifyObservers
   }
-
   def getDicesList(): List[Dice] = {
     dices.defaultDices.toList++dices.coloredDices.toList
   }
-
   def getDiceCombinations(): List[((String,Int),(Dice,Dice))] = {
     dices.updateDiceCombinations()
   }
@@ -106,15 +101,12 @@ class Controller() extends Observable {
     }
     players.sortBy(_.ID)
   }
-
   def getPlayerName(playerID:Int):String = {
     playerList(playerID).name
   }
-
   def getPlayerPoints(playerID:Int):Int = {
     playerList(playerID).block.getCommulatedPoints()
   }
-
   def getPlayerSplittedPoints(playerID:Int):List[(String,Int)] = {
     playerList(playerID).block.getSplittedPoints()
   }

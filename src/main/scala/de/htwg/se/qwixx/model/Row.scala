@@ -36,7 +36,6 @@ class Row (val rowIdx:Integer, val colorName:String){
     }
     fields
   }
-
   def checkField(fieldIdx:Int): (Boolean,String) ={
     if(!fieldList(fieldIdx).blockedState) {
       if(!fieldList(fieldIdx).checkedState) {
@@ -51,7 +50,6 @@ class Row (val rowIdx:Integer, val colorName:String){
       (false,"Field is blocked!")
     }
   }
-
   def updateFields() : Array[Field] = {
     if (locked) {
       for (f <- fieldList.toList) {
@@ -71,7 +69,6 @@ class Row (val rowIdx:Integer, val colorName:String){
     }
     fieldList
   }
-
   def getCheckedFieldCount(): Int = {
     fieldList.count(_.checkedState)
   }
@@ -94,7 +91,6 @@ class Row (val rowIdx:Integer, val colorName:String){
     }
     res
   }
-
   def getOpenFields(): List[(Int,Int)] = {
     var s : List[(Int,Int)] = List()
     for(f <- fieldList.toList.reverse){

@@ -23,7 +23,6 @@ object UserInterfaces extends Enumeration {
 object Main {
 
   val controller = new Controller
-  controller.notifyObservers
 
   def main(args: Array[String]): Unit = {
 
@@ -33,11 +32,11 @@ object Main {
         val stringBuilder = new StringBuilder
         var input: String = ""
         controller.updateGame()
+        print("\n")
         do {
           input = readLine()
           stringBuilder.clear()
           print(tui.processInputCommands(input,stringBuilder))
-          controller.updateGame()
         } while (input != "exit")
       }
       case 2 =>{
@@ -54,7 +53,6 @@ object Main {
     val id = checkInput("")
     id
   }
-
   def checkInput(default:String): Int ={
     print("\n\nTo run, enter <T/t> for TextUI or <G/g> for GraphicUI. \n(T/G)?: ")
     var cmd = ""
