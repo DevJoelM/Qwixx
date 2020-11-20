@@ -1,7 +1,7 @@
 
 package de.htwg.se.qwixx.controller
 
-import de.htwg.se.qwixx.model.{Dice, Dices, Player}
+import de.htwg.se.qwixx.model.{Block, Dice, Dices, Player}
 import de.htwg.se.qwixx.util.Observable
 
 /////////////////////////////////////////////////////////////
@@ -87,7 +87,6 @@ class Controller() extends Observable {
   def throwDices(): Unit = {
     dices.throwDices()
     dices.throwDices()
-    dices.updateDiceCombinations()
     notifyObservers
   }
 
@@ -105,7 +104,7 @@ class Controller() extends Observable {
   def createPlayers():List[Player] = {
     var players: List[Player] = List()
     for(player <- 0 to 0){
-      players = Player(player,"") :: players
+      players = Player(player,"", new Block) :: players
     }
     notifyObservers
     players.sortBy(_.ID)

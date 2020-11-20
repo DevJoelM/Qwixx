@@ -8,6 +8,5 @@ package de.htwg.se.qwixx.model
 // Last Modified On : 11.11.2020
 /////////////////////////////////////////////////////////////
 
-case class Player(ID: Int, name: String) {
-  val block = new Block()
+case class Player(ID: Int, name: String, block: Block) {
 }

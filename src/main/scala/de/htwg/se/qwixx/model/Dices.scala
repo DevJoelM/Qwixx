@@ -40,7 +40,6 @@ class Dices {
     }
     throwSpecificDices(coloredDices, cDiceCount)
     throwSpecificDices(defaultDices, dDiceCount)
-
     true
   }
 

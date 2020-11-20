@@ -65,12 +65,12 @@ object Main {
     var ui = 0
     if(cmd.equals("T")||cmd.equals("t")){
       ui = UserInterfaces.TextUI.id
-      pr.info("TextUI will be initialized...")
+      print("TextUI will be initialized...")
     } else if(cmd.equals("G")||cmd.equals("g")){
       ui = UserInterfaces.GraphicUI.id
-      pr.info("TextUI will be initialized...")
+      print("TextUI will be initialized...")
     } else {
-      pr.error("Input not allowed!")
+      print("Input not allowed!")
       ui = checkInput("")
     }
     ui

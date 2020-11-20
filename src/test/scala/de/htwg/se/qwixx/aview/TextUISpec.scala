@@ -5,7 +5,6 @@ import de.htwg.se.qwixx.model.Player
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
-
 /////////////////////////////////////////////////////////////
 // FileName: TextUISpec.scala
 // FileType: Scala-Test Source file
@@ -39,6 +38,22 @@ class TextUISpec extends AnyWordSpec with Matchers {
         tui.visualizePlayground() should include("⬜")
         ui.playerList(0).block.rowList(1).fieldList(3).checkedState = true
         tui.visualizePlayground() should include("⬛")
+      }
+    }
+    "Textcommands are used" should {
+      val ui = new Controller
+      val tui = new TextUI(ui)
+      val sb = new StringBuilder
+      "should process commands" in {
+        tui.processInputCommands("t", sb)
+        tui.processInputCommands("", sb) should include("\nInput not allowed!\n")
+        tui.processInputCommands("1 1 1", sb)
+        tui.processInputCommands("1 1 l", sb)
+        ui.playerList(0).block.rowList(0).locked = true
+        ui.playerList(0).block.rowList(1).locked = true
+        ui.playerList(0).block.rowList(0).fieldList(0).checkedState=true
+        tui.processInputCommands("1 1 1", sb)
+        tui.processInputCommands("1 1 2", sb) should include ("Game Finished!")
       }
     }
   }

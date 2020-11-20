@@ -5,7 +5,7 @@ package de.htwg.se.qwixx.model
 // FileType: Scala Source file
 // Author: Joel Merath, Tim Disch
 // Created On : 29.10.2020
-// Last Modified On : 29.10.2020
+// Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
 class Row (val rowIdx:Integer, val colorName:String){

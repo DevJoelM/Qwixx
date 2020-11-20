@@ -8,4 +8,4 @@ package de.htwg.se.qwixx.model
 // Last Modified On : 06.11.2020
 /////////////////////////////////////////////////////////////
 
-case class Dice(ID: Int, colorHex: String, colorName: String, value: Int) {}
+case class Dice(ID: Int, colorHex: String, colorName: String, value: Int){}

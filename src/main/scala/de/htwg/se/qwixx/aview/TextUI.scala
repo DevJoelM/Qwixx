@@ -16,12 +16,11 @@ class TextUI(controller: Controller) {
   def processInputCommands(pcmd:String, stringBuilder: StringBuilder): String = {
     breakable {
       val cmd = pcmd.split(" ")
-      if (cmd(0) == "") {
+      if (cmd(0) == "" || cmd.size == 2 || cmd.size > 3) {
+        stringBuilder.append("\nInput not allowed!\n")
         break
       } else if (cmd.size == 1 && cmd(0) == "t") {
         controller.throwDices()
-      } else if (cmd.size == 1 && cmd(0) == "exit") {
-        break
       } else if (cmd(2) == "l") {
         stringBuilder.append("\n" + controller.lockRow(cmd(0).toInt - 1,cmd(1).toInt - 1)._2)
       } else {
