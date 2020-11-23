@@ -1,6 +1,6 @@
 ![Logo](images/qwixx_logo.png)
 
-[![Build Status](https://travis-ci.org/DevJoelM/Qwixx.svg?branch=main)](https://travis-ci.org/DevJoelM/Qwixx)
+[![Build Status](https://travis-ci.org/DevJoelM/Qwixx.svg?branch=feature%2FSE-Task06)](https://travis-ci.org/DevJoelM/Qwixx)
 [![Coverage Status](https://coveralls.io/repos/github/DevJoelM/Qwixx/badge.svg)](https://coveralls.io/github/DevJoelM/Qwixx)
 
 Implementation of the game **Qwixx** for our software engineering project.
