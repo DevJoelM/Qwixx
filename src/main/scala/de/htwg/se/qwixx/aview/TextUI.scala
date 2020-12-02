@@ -13,7 +13,7 @@ import scala.util.control.Breaks._
 // Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
-class TextUI(controller: Controller) extends Observer{
+class TextUI(controller: Controller) extends Observer with UIType {
 
   controller.add(this)
 
@@ -21,35 +21,42 @@ class TextUI(controller: Controller) extends Observer{
     print(visualizePlayground())
   }
 
+  override def run (input:String): String = {
+    processInputCommands(input)
+  }
+
   /**
    * Method to returns a message to a given command.
    * @return Message
    */
-  def processInputCommands(pcmd:String, stringBuilder: StringBuilder): String = {
+  def processInputCommands(pcmd:String): String = {
+    val strBuilder = new StringBuilder
     breakable {
       val cmd = pcmd.split(" ")
       if (cmd(0) == "" || cmd.size == 2 || cmd.size > 3) {
-        stringBuilder.append("\nInput not allowed!\n")
+        strBuilder.append("\nInput not allowed!\n")
         break
       } else if (cmd.size == 1 && cmd(0) == "t") {
         controller.throwDices()
       } else if (cmd(2) == "l") {
-        stringBuilder.append("\n" + controller.lockRow(cmd(0).toInt - 1,cmd(1).toInt - 1)._2)
+        strBuilder.append("\n" + controller.lockRow(cmd(0).toInt - 1,cmd(1).toInt - 1)._2)
       } else {
         val res = controller.isFieldCheckable(cmd(0).toInt - 1,cmd(1).toInt - 1,cmd(2).toInt - 1)
         if(res._1) {
-          stringBuilder.append("\n" + controller.checkField(cmd(0).toInt - 1, cmd(1).toInt - 1, cmd(2).toInt - 1)._2)
+          strBuilder.append("\n" + controller.checkField(cmd(0).toInt - 1, cmd(1).toInt - 1, cmd(2).toInt - 1)._2)
+          break
         } else {
-          stringBuilder.append(res._2)
+          strBuilder.append(res._2)
         }
       }
-      stringBuilder.append("\n")
+      strBuilder.append("\n")
       if(controller.checkIfGameIsEnded()){
-        stringBuilder.append("\nGame Finished!")
+        strBuilder.append("\nGame Finished!")
         break()
       }
     }
-    stringBuilder.toString()
+    strBuilder.append("\n")
+    strBuilder.toString()
   }
 
   /**
@@ -58,6 +65,7 @@ class TextUI(controller: Controller) extends Observer{
    */
   def visualizePlayground(): String = {
     val sb = new StringBuilder()
+    sb.clear()
     val pad = "   "
     for(c <- controller.playerList){
       println()

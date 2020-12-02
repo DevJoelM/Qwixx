@@ -64,9 +64,9 @@ class Controller() extends Observable {
       val dCombination = comb.find(_._1 ==
         (dices.defaultDices(0).colorName,row.fieldList(fieldID).value))
       if(dCombination!=None){
-        return (true, String.format("Combination %s works!",dCombination.get._1))
+        return (true, String.format("Combination %s worked!",dCombination.get._1))
       } else  if(cCombination!=None) {
-        return (true, String.format("Combination %s works!",cCombination.get._1))
+        return (true, String.format("Combination %s worked!",cCombination.get._1))
       } else {
         return (false, String.format("Combination %s doesn't work!",passedCombination))
       }
@@ -89,6 +89,7 @@ class Controller() extends Observable {
   def getDicesList(): List[Dice] = {
     dices.defaultDices.toList++dices.coloredDices.toList
   }
+
   def getDiceCombinations(): List[((String,Int),(Dice,Dice))] = {
     dices.updateDiceCombinations()
   }

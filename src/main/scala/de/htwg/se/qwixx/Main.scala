@@ -1,10 +1,9 @@
 package de.htwg.se.qwixx
 
-import de.htwg.se.qwixx.aview.{GraphicUI, TextUI}
+import de.htwg.se.qwixx.aview.{TextUI, UIType}
 import de.htwg.se.qwixx.controller.Controller
 
 import scala.io.Source
-import scala.io.StdIn.readLine
 
 /////////////////////////////////////////////////////////////
 // FileName: Main.scala
@@ -14,65 +13,36 @@ import scala.io.StdIn.readLine
 // Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
-object UserInterfaces extends Enumeration {
-  type UserInterfaces = Value
-  val TextUI = Value(1)
-  val GraphicUI = Value(2)
-}
-
 object Main {
-
-  val controller = new Controller
 
   def main(args: Array[String]): Unit = {
 
-    runInitializationScreen() match {
-      case 1 =>{
-        val tui = new TextUI(controller)
-        val stringBuilder = new StringBuilder
-        var input: String = ""
-        controller.updateGame()
-        print("\n")
-        do {
-          input = readLine()
-          stringBuilder.clear()
-          print(tui.processInputCommands(input,stringBuilder))
-        } while (input != "exit")
+    val controller = new Controller
+
+    runInitializationScreen()
+
+    val ui = UIType(scala.io.StdIn.readLine(), controller)
+
+    controller.updateGame()
+
+    while (!controller.checkIfGameIsEnded()) {
+
+      ui.isInstanceOf[TextUI] match {
+        case true => print(ui.run(scala.io.StdIn.readLine()))
+        case false => ui.run()
       }
-      case 2 =>{
-        new GraphicUI(controller)
-      }
+
     }
+
   }
 
-  def runInitializationScreen(): Int = {
+  def runInitializationScreen(): Unit = {
+
     for (line <- Source.fromFile("images/asciiTitle.txt").getLines) {
       println()
       print(line)
     }
-    val id = checkInput("")
-    id
-  }
-  def checkInput(default:String): Int ={
     print("\n\nTo run, enter <T/t> for TextUI or <G/g> for GraphicUI. \n(T/G)?: ")
-    var cmd = ""
-    if(default=="") {
-       cmd = scala.io.StdIn.readLine()
-    } else {
-       cmd = default
-    }
-    var ui = 0
-    if(cmd.equals("T")||cmd.equals("t")){
-      ui = UserInterfaces.TextUI.id
-      print("TextUI will be initialized...")
-    } else if(cmd.equals("G")||cmd.equals("g")){
-      ui = UserInterfaces.GraphicUI.id
-      print("TextUI will be initialized...")
-    } else {
-      print("Input not allowed!")
-      ui = checkInput("")
-    }
-    ui
-  }
 
+  }
 }

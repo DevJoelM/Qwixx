@@ -11,6 +11,6 @@ import de.htwg.se.qwixx.controller.Controller
 // Last Modified On : 11.11.2020
 /////////////////////////////////////////////////////////////
 
-class GraphicUI(controller: Controller) {
+class GraphicUI(controller: Controller) extends UIType {
 
 }
