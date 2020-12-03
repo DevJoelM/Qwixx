@@ -8,18 +8,19 @@ package de.htwg.se.qwixx.model
 // Last Modified On : 11.11.2020
 /////////////////////////////////////////////////////////////
 
-class Block {
-  val rowList = createRowList()
+class Block (strat: String) {
 
-  //Rows
-  def createRowList(): Array[Row] = {
+  val rowList = createRows(strat)
+
+  def createRows(start:String): Array[Row] = {
     val avaibleRowColorNames = Array("Red","Yellow","Green","Blue")
     val raws = new Array[Row](4)
     for(r <- 1 to 4){
-      raws(r-1) = new Row(r,avaibleRowColorNames(r-1))
+      raws(r-1) = new Row(r,avaibleRowColorNames(r-1),start)
     }
     raws
   }
+
   def getLockedRows(): Int = {
     var res = 0
     for(r <- rowList){

@@ -12,4 +12,3 @@ object UIType {
     case "g" | "G" => new GraphicUI(controller)
   }
 }
-

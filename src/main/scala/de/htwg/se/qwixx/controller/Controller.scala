@@ -14,13 +14,14 @@ import de.htwg.se.qwixx.util.Observable
 
 class Controller() extends Observable {
 
-  val playerList = createPlayers()
+  val playerList = createPlayers("s")
   val dices = new Dices()
 
   //Runtime
   def updateGame(): Unit = {
     notifyObservers
   }
+
   def checkIfGameIsEnded(): Boolean = {
     var ended = false
     for(p <- playerList){
@@ -95,10 +96,10 @@ class Controller() extends Observable {
   }
 
   //Player commands
-  def createPlayers():List[Player] = {
+  def createPlayers(strat: String):List[Player] = {
     var players: List[Player] = List()
     for(player <- 0 to 0){
-      players = Player(player,"", new Block) :: players
+      players = Player(player,"", new Block(strat)) :: players
     }
     players.sortBy(_.ID)
   }

@@ -14,8 +14,8 @@ import org.scalatest.wordspec.AnyWordSpec
 class BlockSpec extends AnyWordSpec with Matchers {
   "A Block" should {
     "should look like" in {
-      val b  = new Block
-      b.createRowList() shouldBe a [Array[_]]
+      val b  = new Block("s")
+      //b.createRowList() shouldBe a [Array[_]]
       b.getLockedRows() should be(0)
       b.getCommulatedPoints() should be(0)
       b.getSplittedPoints() shouldBe a[List[_]]

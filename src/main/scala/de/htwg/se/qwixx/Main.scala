@@ -18,20 +18,15 @@ object Main {
   def main(args: Array[String]): Unit = {
 
     val controller = new Controller
-
     runInitializationScreen()
-
     val ui = UIType(scala.io.StdIn.readLine(), controller)
-
     controller.updateGame()
 
     while (!controller.checkIfGameIsEnded()) {
-
       ui.isInstanceOf[TextUI] match {
         case true => print(ui.run(scala.io.StdIn.readLine()))
-        case false => ui.run()
+        case false => ui.run(null)
       }
-
     }
 
   }

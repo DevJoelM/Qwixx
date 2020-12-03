@@ -8,9 +8,13 @@ package de.htwg.se.qwixx.model
 // Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
-class Row (val rowIdx:Integer, val colorName:String){
+class Row (val rowIdx:Integer, val colorName:String, strat:String){
 
-  val fieldList = fillFieldList()
+  val rowStrategy = RowStrategy
+  rowStrategy.setStrategy(strat)
+
+  val fieldList = rowStrategy.strategy
+
   var locked:Boolean = false
 
   //Row
@@ -28,14 +32,6 @@ class Row (val rowIdx:Integer, val colorName:String){
     }
   }
 
-  //Fields
-  def fillFieldList(): Array[Field] = {
-    val fields = new Array[Field](11)
-    for(r <- 2 to 12){
-      fields(r-2) = new Field(r-2,r,false,false)
-    }
-    fields
-  }
   def checkField(fieldIdx:Int): (Boolean,String) ={
     if(!fieldList(fieldIdx).blockedState) {
       if(!fieldList(fieldIdx).checkedState) {
