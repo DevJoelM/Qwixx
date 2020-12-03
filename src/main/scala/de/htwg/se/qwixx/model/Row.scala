@@ -8,8 +8,9 @@ package de.htwg.se.qwixx.model
 // Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
-class Row (val rowIdx:Integer, val colorName:String, strat:String){
+class Row (val rowIdx:Integer, val colorName:String, val strat:String){
 
+  //Validate RowStrategy
   val rowStrategy = RowStrategy
   rowStrategy.setStrategy(strat)
 

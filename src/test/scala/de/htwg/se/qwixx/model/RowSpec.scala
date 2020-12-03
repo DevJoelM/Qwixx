@@ -14,7 +14,7 @@ import org.scalatest.wordspec.AnyWordSpec
 class RowSpec extends AnyWordSpec with Matchers {
   "A Row" should {
     "should " in {
-      val d = new Row(1, "Red", "s")
+      val d = new Row(1, "Red", "sorted")
       d.lockRow() shouldBe a[Array[_]]
       d.checkField(1) shouldBe a[Array[_]]
       d.locked should be(false)
@@ -28,7 +28,7 @@ class RowSpec extends AnyWordSpec with Matchers {
   }
   "Row" should {
     "updateFields" in {
-      val d = new Row(0, "Red", "s" )
+      val d = new Row(0, "Red", "sorted" )
       d.locked = true
       d.updateFields().toList foreach {
         f => {
@@ -40,7 +40,7 @@ class RowSpec extends AnyWordSpec with Matchers {
   }
   "Row" should {
     "lockRow" in {
-      val d = new Row(0, "Red", "s")
+      val d = new Row(0, "Red", "sorted")
       for(c <- 0 to 4){
         d.fieldList(c).checkedState = true
       }
@@ -51,7 +51,7 @@ class RowSpec extends AnyWordSpec with Matchers {
   }
   "Row" should {
     "checkField" in {
-      val d = new Row(0, "Red", "s")
+      val d = new Row(0, "Red", "sorted")
       d.fieldList(0).blockedState = true
       d.fieldList(0).checkedState = true
       d.checkField(0)

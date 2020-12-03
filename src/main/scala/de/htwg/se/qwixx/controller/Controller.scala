@@ -14,7 +14,7 @@ import de.htwg.se.qwixx.util.Observable
 
 class Controller() extends Observable {
 
-  val playerList = createPlayers("s")
+  var playerList = createPlayers("random")
   val dices = new Dices()
 
   //Runtime

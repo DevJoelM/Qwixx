@@ -27,11 +27,11 @@ class ControllerSpec extends AnyWordSpec with Matchers {
         x._2 should include ("work")
         x._1 shouldBe a [Boolean]
         for (i <- 0 to 11){
-          var m =  ui.isCombinationCheckable(0, 0, i)
+          val m = ui.isCombinationCheckable(0, 0, i)
           m shouldBe a[(_,_)]
         }
         for (i <- 0 to 11) {
-          var m =  ui.checkField(0, 0, i)
+          val m = ui.checkField(0, 0, i)
           m shouldBe a[(_,_)]
         }
       }
