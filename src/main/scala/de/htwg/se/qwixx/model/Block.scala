@@ -16,7 +16,6 @@ class Block (val strat: String) {
 
   val rowList = rowsStrategy.strategy
 
-
   def getLockedRows(): Int = {
     var res = 0
     for(r <- rowList){

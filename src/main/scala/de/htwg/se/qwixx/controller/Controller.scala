@@ -2,7 +2,8 @@
 package de.htwg.se.qwixx.controller
 
 import de.htwg.se.qwixx.model.{Block, Dice, Dices, Player}
-import de.htwg.se.qwixx.util.Observable
+import de.htwg.se.qwixx.util.Logger.info
+import de.htwg.se.qwixx.util.{GameState, Observable}
 
 /////////////////////////////////////////////////////////////
 // FileName: Controller.scala
@@ -14,8 +15,11 @@ import de.htwg.se.qwixx.util.Observable
 
 class Controller() extends Observable {
 
-  var playerList = createPlayers("random")
+  var playerList = createPlayers("classic")
   val dices = new Dices()
+
+  val undoManager = new UndoManager
+  val gameState = GameState
 
   //Runtime
   def updateGame(): Unit = {
@@ -26,6 +30,7 @@ class Controller() extends Observable {
     var ended = false
     for(p <- playerList){
       if(p.block.getLockedRows() == 2){
+        gameState.handle(false)
         ended = true
       }
     }
@@ -37,7 +42,8 @@ class Controller() extends Observable {
     val checkable = isCombinationCheckable(playerID,rowID,fieldID)
     if(checkable._1){
       val row = playerList(playerID).block.rowList(rowID)
-      row.checkField(fieldID)
+      //row.checkField(fieldID)
+      undoManager.doCheck(new SetCommand(this,playerID,rowID,fieldID))
       row.updateFields()
     }
     notifyObservers

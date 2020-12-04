@@ -8,4 +8,4 @@ package de.htwg.se.qwixx.model
 // Last Modified On : 29.10.2020
 /////////////////////////////////////////////////////////////
 
-class Field (val fieldIdx:Int, val value:Int, var checkedState: Boolean,var blockedState:Boolean){}
+class Field (val fieldIdx:Int, val value:Int, var checkedState: Boolean,var blockedState:Boolean,var undoState: Boolean){}

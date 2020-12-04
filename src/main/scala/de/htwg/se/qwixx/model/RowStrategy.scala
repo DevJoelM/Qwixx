@@ -2,6 +2,14 @@ package de.htwg.se.qwixx.model
 
 import scala.util.Random
 
+/////////////////////////////////////////////////////////////
+// FileName: RowStrategy.scala
+// FileType: Scala Source file
+// Author: Joel Merath, Tim Disch
+// Created On : 03.12.2020
+// Last Modified On : 03.12.2020
+/////////////////////////////////////////////////////////////
+
 object RowStrategy {
 
   var strategy = strategySorted
@@ -16,7 +24,7 @@ object RowStrategy {
     val possibleValues_strategySorted = Array(2,3,4,5,6,7,8,9,10,11,12)
     val fields = new Array[Field](11)
     for(r <- 2 to 12){
-        fields(r-2) = new Field(r-2,possibleValues_strategySorted(r-2),false,false)
+        fields(r-2) = new Field(r-2,possibleValues_strategySorted(r-2),false,false,false)
     }
     fields
   }
@@ -25,7 +33,7 @@ object RowStrategy {
     val possibleValues_strategyReversed = Array(12,11,10,9,8,7,6,5,4,3,2)
     val fields = new Array[Field](11)
     for(r <- 12 to 2 by -1){
-      fields(r-2) = new Field(r-2,possibleValues_strategyReversed(r-2),false,false)
+      fields(r-2) = new Field(r-2,possibleValues_strategyReversed(r-2),false,false,false)
     }
     fields
   }
@@ -35,7 +43,7 @@ object RowStrategy {
     val randomizedValues = Random.shuffle(possibleValues_strategyRandomized.toList)
     val fields = new Array[Field](11)
     for(r <- 12 to 2 by -1){
-      fields(r-2) = new Field(r-2,randomizedValues(r-2),false,false)
+      fields(r-2) = new Field(r-2,randomizedValues(r-2),false,false,false)
     }
     fields
   }

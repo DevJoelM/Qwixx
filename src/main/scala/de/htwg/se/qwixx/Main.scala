@@ -2,6 +2,7 @@ package de.htwg.se.qwixx
 
 import de.htwg.se.qwixx.aview.{TextUI, UIType}
 import de.htwg.se.qwixx.controller.Controller
+import de.htwg.se.qwixx.util.Logger.info
 
 import scala.io.Source
 
@@ -23,7 +24,7 @@ object Main {
     val ui = UIType(scala.io.StdIn.readLine(), controller)
     controller.updateGame()
 
-    while (!controller.checkIfGameIsEnded()) {
+    while (controller.gameState.state) {
       ui.isInstanceOf[TextUI] match {
         case true => print(ui.run(scala.io.StdIn.readLine()))
         case false => ui.run("")
@@ -38,7 +39,7 @@ object Main {
       println()
       print(line)
     }
-    print("\n\nTo run, enter <T/t> for TextUI or <G/g> for GraphicUI. \n(T/G)?: ")
+    info("\n\nTo run, enter <T/t> for TextUI or <G/g> for GraphicUI. \n(T/G)?: ")
 
   }
 }

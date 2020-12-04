@@ -57,11 +57,17 @@ class Row (val rowIdx:Integer, val colorName:String, val strat:String){
     }
     var foundLastCheckedField = false
     for (f <- fieldList.reverse) {
+      if(f.undoState){
+        f.checkedState = false
+        f.undoState = false
+      }
       if (!foundLastCheckedField && f.checkedState) {
         foundLastCheckedField = true
       }
       if (foundLastCheckedField && f.checkedState == false) {
         f.blockedState = true
+      } else{
+        f.blockedState = false
       }
     }
     fieldList

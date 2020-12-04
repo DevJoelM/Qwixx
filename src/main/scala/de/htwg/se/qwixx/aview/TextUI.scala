@@ -38,7 +38,16 @@ class TextUI(controller: Controller) extends Observer with UIType {
         break
       } else if (cmd.size == 1 && cmd(0) == "t") {
         controller.throwDices()
-      } else if (cmd(2) == "l") {
+      } else if (cmd.size == 1 && cmd(0) == "undo") {
+        controller.undoManager.undoCheck
+        controller.updateGame()
+      } else if (cmd.size == 1 && cmd(0) == "redo") {
+        controller.undoManager.redoStep
+        controller.updateGame()
+      }  else if (cmd.size == 1 && cmd(0) == "exit") {
+        controller.gameState.handle(false)
+        break()
+      }else if (cmd(2) == "l") {
         strBuilder.append("\n" + controller.lockRow(cmd(0).toInt - 1,cmd(1).toInt - 1)._2)
       } else {
         val res = controller.isFieldCheckable(cmd(0).toInt - 1,cmd(1).toInt - 1,cmd(2).toInt - 1)

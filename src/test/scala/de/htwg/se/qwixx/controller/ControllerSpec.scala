@@ -24,7 +24,7 @@ class ControllerSpec extends AnyWordSpec with Matchers {
         ui.checkField(0,0,1) shouldBe a [(Boolean,String)]
         val x = ui.isCombinationCheckable(0,0,0)
         ui.isCombinationCheckable(0,0,20) shouldBe a[(_,_)]
-        x._2 should include ("work")
+        x._2 should (include("work") or include("checkable"))
         x._1 shouldBe a [Boolean]
         for (i <- 0 to 11){
           val m = ui.isCombinationCheckable(0, 0, i)

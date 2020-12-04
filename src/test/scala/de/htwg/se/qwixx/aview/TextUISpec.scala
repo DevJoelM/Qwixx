@@ -44,15 +44,33 @@ class TextUISpec extends AnyWordSpec with Matchers {
       val ui = new Controller
       val tui = new TextUI(ui)
       "should process commands" in {
+
+        for (i <- 0 to 11){
+          val m = ui.isCombinationCheckable(0, 0, i)
+          m shouldBe a[(_,_)]
+        }
+        for (i <- 0 to 11) {
+          val m = ui.checkField(0, 0, i)
+          m shouldBe a[(_,_)]
+        }
+
         tui.processInputCommands("t")
         tui.processInputCommands("") should include("\nInput not allowed!\n")
         tui.processInputCommands("1 1 1")
+
+        tui.processInputCommands("undo")
+        tui.processInputCommands("redo")
+
+
+
         tui.processInputCommands("1 1 l")
         ui.playerList(0).block.rowList(0).locked = true
         ui.playerList(0).block.rowList(1).locked = true
         ui.playerList(0).block.rowList(0).fieldList(0).checkedState=true
-        tui.processInputCommands("1 1 1")
-        //tui.processInputCommands("1 1 2") should include ("Game Finished!")
+        tui.processInputCommands("1 1 2")
+
+        tui.processInputCommands("exit")
+        ui.gameState.handle(false)
       }
     }
   }

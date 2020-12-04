@@ -1,5 +1,13 @@
 package de.htwg.se.qwixx.model
 
+/////////////////////////////////////////////////////////////
+// FileName: RowsStrategy.scala
+// FileType: Scala Source file
+// Author: Joel Merath, Tim Disch
+// Created On : 03.12.2020
+// Last Modified On : 03.12.2020
+/////////////////////////////////////////////////////////////
+
 object RowsStrategy {
 
   var strategy = strategyClassic
