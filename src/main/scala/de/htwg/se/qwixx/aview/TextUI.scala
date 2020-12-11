@@ -4,6 +4,7 @@ import de.htwg.se.qwixx.controller.Controller
 import de.htwg.se.qwixx.util.Observer
 
 import scala.util.control.Breaks._
+import scala.util.control.Exception.allCatch
 
 /////////////////////////////////////////////////////////////
 // FileName: TextUI.scala
@@ -25,6 +26,8 @@ class TextUI(controller: Controller) extends Observer with UIType {
     processInputCommands(input)
   }
 
+  def toInt(s: String): Option[Int] = allCatch.opt(s.toInt)
+
   /**
    * Method to returns a message to a given command.
    * @return Message
@@ -33,6 +36,18 @@ class TextUI(controller: Controller) extends Observer with UIType {
     val strBuilder = new StringBuilder
     breakable {
       val cmd = pcmd.split(" ")
+
+      var cmd0Int: Option[Int] = None
+      var cmd1Int: Option[Int] = None
+      var cmd2Int: Option[Int] = None
+
+      if(cmd.size == 3) {
+        cmd0Int = toInt(cmd(0))
+        cmd1Int = toInt(cmd(1))
+        cmd2Int = toInt(cmd(2))
+      }
+
+      //-- INPUTS ------------------------------------------------------
       if (cmd(0) == "" || cmd.size == 2 || cmd.size > 3) {
         strBuilder.append("\nInput not allowed!\n")
         break
@@ -48,11 +63,13 @@ class TextUI(controller: Controller) extends Observer with UIType {
         controller.gameState.handle(false)
         break()
       }else if (cmd(2) == "l") {
-        strBuilder.append("\n" + controller.lockRow(cmd(0).toInt - 1,cmd(1).toInt - 1)._2)
-      } else {
-        val res = controller.isFieldCheckable(cmd(0).toInt - 1,cmd(1).toInt - 1,cmd(2).toInt - 1)
+        strBuilder.append("\n" + controller.lockRow(cmd0Int.get - 1,cmd1Int.get - 1)._2)
+      }
+      //----------------------------------------------------------------
+      else {
+        val res = controller.isFieldCheckable(cmd0Int.get - 1,cmd1Int.get - 1,cmd2Int.get - 1)
         if(res._1) {
-          strBuilder.append("\n" + controller.checkField(cmd(0).toInt - 1, cmd(1).toInt - 1, cmd(2).toInt - 1)._2)
+          strBuilder.append("\n" + controller.checkField(cmd0Int.get - 1, cmd1Int.get - 1, cmd2Int.get - 1)._2)
           break
         } else {
           strBuilder.append(res._2)

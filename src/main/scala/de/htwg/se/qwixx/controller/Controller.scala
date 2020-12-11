@@ -2,8 +2,9 @@
 package de.htwg.se.qwixx.controller
 
 import de.htwg.se.qwixx.model.{Block, Dice, Dices, Player}
-import de.htwg.se.qwixx.util.Logger.info
 import de.htwg.se.qwixx.util.{GameState, Observable}
+
+import scala.util.{Failure, Success, Try}
 
 /////////////////////////////////////////////////////////////
 // FileName: Controller.scala
@@ -52,12 +53,20 @@ class Controller() extends Observable {
   def isFieldCheckable(playerID:Int, rowID:Int, fieldID:Int) : (Boolean,String) = {
     val openFields = playerList(playerID).block.rowList(rowID).getOpenFields()
     val row = playerList(playerID).block.rowList(rowID)
-    if(openFields.find(_._1 == fieldID)==None){
-      (false, String.format("Row (%s), Field (%s) is not checkable!", rowID.toString,
-        row.fieldList(rowID).value.toString))
-    } else {
-      (true, String.format("Row (%s), Field (%s) is checkable!", rowID.toString,
-        row.fieldList(rowID).value.toString))
+    Try(openFields(fieldID)) match {
+      case Success(value) => {
+        val rowIdStr = value._1.toString
+        if(openFields.find(_._1 == fieldID)==None){
+          (false, String.format("Row (%s), Field (%s) is not checkable!", rowIdStr,
+            fieldID.toString))
+        } else {
+          (true, String.format("Row (%s), Field (%s) is checkable!", rowIdStr,
+            row.fieldList(rowID).value.toString))
+        }
+      }
+      case Failure(exception) =>
+        (false, String.format("Row (%s), Field (%s) is not an option!", rowID.toString,
+          exception.getMessage))
     }
   }
   def isCombinationCheckable(playerID:Int, rowID:Int, fieldID:Int): (Boolean, String)= {
@@ -109,12 +118,15 @@ class Controller() extends Observable {
     }
     players.sortBy(_.ID)
   }
+
   def getPlayerName(playerID:Int):String = {
     playerList(playerID).name
   }
+
   def getPlayerPoints(playerID:Int):Int = {
     playerList(playerID).block.getCommulatedPoints()
   }
+
   def getPlayerSplittedPoints(playerID:Int):List[(String,Int)] = {
     playerList(playerID).block.getSplittedPoints()
   }

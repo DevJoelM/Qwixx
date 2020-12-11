@@ -28,7 +28,7 @@ class Dices {
       for (diceIdx <- 0 to len-1) {
         val idxOffset = getIndexOffset(len)
         val nd = Dice(diceIdx+idxOffset, colorsHex(diceIdx+idxOffset), colorsName(diceIdx+idxOffset), random.nextInt(5) + 1)
-        if(dices != null) {
+        if(dices != Option(null)) {
           dices(diceIdx) = nd
         }
       }

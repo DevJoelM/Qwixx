@@ -1,5 +1,7 @@
 package de.htwg.se.qwixx.model
 
+import scala.util.{Failure, Success, Try}
+
 /////////////////////////////////////////////////////////////
 // FileName: Row.scala
 // FileType: Scala Source file
@@ -20,15 +22,20 @@ class Row (val rowIdx:Integer, val colorName:String, val strat:String){
 
   //Row
   def lockRow(): (Boolean,String) = {
+
     if(!locked){
       if(getCheckedFieldCount()>=5) {
         locked = true
         updateFields()
         (true, String.format("Row (%s) successfully locked!", (rowIdx+1).toString))
-      } else {
+      }
+      else
+      {
         (false, String.format("Not enough fields in row (%s) checked!", (rowIdx+1).toString))
       }
-    } else {
+    }
+    else
+    {
       (false, String.format("Row (%s) is already locked!", (rowIdx+1).toString))
     }
   }
