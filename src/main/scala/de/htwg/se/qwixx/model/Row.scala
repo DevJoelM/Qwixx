@@ -24,7 +24,7 @@ class Row (val rowIdx:Integer, val colorName:Color, val strat:String){
   def lockRow(): (Boolean,String) = {
 
     if(!locked){
-      if(getCheckedFieldCount()>=5) {
+      if(getCheckedFieldCount()>=1) {
         locked = true
         updateFields()
         (true, String.format("Row (%s) successfully locked!", (rowIdx+1).toString))
@@ -76,6 +76,11 @@ class Row (val rowIdx:Integer, val colorName:Color, val strat:String){
       } else{
         f.blockedState = false
       }
+      if(locked){
+        if (!f.checkedState) {
+          f.blockedState = true
+        }
+      }
     }
     fieldList
   }
@@ -107,6 +112,13 @@ class Row (val rowIdx:Integer, val colorName:Color, val strat:String){
       if(!f.checkedState && !f.blockedState){
         s = (f.fieldIdx,f.value) :: s
       }
+    }
+    s
+  }
+  def getAllFields(): List[(Int,Int)] = {
+    var s : List[(Int,Int)] = List()
+    for(f <- fieldList.toList){
+        s = (f.fieldIdx,f.value) :: s
     }
     s
   }

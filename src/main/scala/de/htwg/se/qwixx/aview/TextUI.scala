@@ -102,8 +102,9 @@ class TextUI(controller: Controller) extends Observer with UIType {
       sb.append("Index".padTo(8," ").mkString+"|  ")
       sb.append("1    2    3    4    5    6    7    8     9   10   11   L\n")
       sb.append("".padTo(70,"─").mkString+"\n")
+      var rCount = 1
       for (row <- c.block.rowList){
-        sb.append(row.colorName.toString.padTo(8," ").mkString+"|  ")
+        sb.append(rCount.toString.padTo(8," ").mkString+"|  ")
         for (field <- row.fieldList){
           if(field.blockedState){
             sb.append("⬜".padTo(2," ").mkString + pad)
@@ -118,6 +119,7 @@ class TextUI(controller: Controller) extends Observer with UIType {
         } else {
           sb.append("\uD83D\uDD13".padTo(3," ").mkString + pad)
         }
+        rCount += 1
         sb.append("\n")
       }
     }

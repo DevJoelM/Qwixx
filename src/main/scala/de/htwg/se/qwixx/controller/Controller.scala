@@ -3,7 +3,8 @@ package de.htwg.se.qwixx.controller
 
 import de.htwg.se.qwixx.model.{Block, Dice, Dices, Player}
 import de.htwg.se.qwixx.util.{GameState, Observable}
-import scala.swing.Publisher
+
+import scala.swing.{Color, Publisher}
 import scala.util.{Failure, Success, Try}
 
 /////////////////////////////////////////////////////////////
@@ -43,7 +44,6 @@ class Controller() extends Observable with Publisher{
     val checkable = isCombinationCheckable(playerID,rowID,fieldID)
     if(checkable._1){
       val row = playerList(playerID).block.rowList(rowID)
-      //row.checkField(fieldID)
       undoManager.doCheck(new SetCommand(this,playerID,rowID,fieldID))
       row.updateFields()
     }
@@ -51,7 +51,7 @@ class Controller() extends Observable with Publisher{
     checkable
   }
   def isFieldCheckable(playerID:Int, rowID:Int, fieldID:Int) : (Boolean,String) = {
-    val openFields = playerList(playerID).block.rowList(rowID).getOpenFields()
+    val openFields = playerList(playerID).block.rowList(rowID).getAllFields()
     val row = playerList(playerID).block.rowList(rowID)
     Try(openFields(fieldID)) match {
       case Success(value) => {
@@ -76,14 +76,12 @@ class Controller() extends Observable with Publisher{
     if(checkable._1){
       val passedCombination = (row.colorName,row.fieldList(fieldID).value)
       val comb = dices.updateDiceCombinations()
-      val cCombination = comb.find(_._1 == passedCombination)
-      val dCombination = comb.find(_._1 ==
-        (dices.defaultDices(0).colorName,row.fieldList(fieldID).value))
+      val dCombination = comb.find(_._1 == passedCombination)
+
       if(dCombination!=None){
         return (true, String.format("Combination %s worked!",dCombination.get._1))
-      } else  if(cCombination!=None) {
-        return (true, String.format("Combination %s worked!",cCombination.get._1))
-      } else {
+      }
+      else {
         return (false, String.format("Combination %s doesn't work!",passedCombination))
       }
     }
@@ -106,7 +104,7 @@ class Controller() extends Observable with Publisher{
     dices.defaultDices.toList++dices.coloredDices.toList
   }
 
-  def getDiceCombinations(): List[((String,Int),(Dice,Dice))] = {
+  def getDiceCombinations(): List[((Color,Int),(Dice,Dice))] = {
     dices.updateDiceCombinations()
   }
 

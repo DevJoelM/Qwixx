@@ -2,9 +2,6 @@ package de.htwg.se.qwixx
 
 import de.htwg.se.qwixx.aview.{TextUI, UIType}
 import de.htwg.se.qwixx.controller.Controller
-import de.htwg.se.qwixx.util.Logger.info
-
-import scala.io.Source
 
 /////////////////////////////////////////////////////////////
 // FileName: Main.scala
@@ -19,35 +16,29 @@ object Main {
   def main(args: Array[String]): Unit = {
 
     val controller = new Controller
-    runInitializationScreen()
+    //runInitializationScreen()
 
-    val ui = UIType(scala.io.StdIn.readLine(), controller)
+    val tui = UIType("T", controller)
     val gui = UIType("G", controller)
-
-    print()
-
 
     controller.updateGame()
 
     while (controller.gameState.state) {
-      ui.isInstanceOf[
+      tui.isInstanceOf[
         TextUI] match {
-        case true => print(ui.run(scala.io.StdIn.readLine()))
-        case false => {
-          ui.run("")
-        }
+        case true => print(tui.run(scala.io.StdIn.readLine()))
       }
     }
 
   }
 
-  def runInitializationScreen(): Unit = {
-
-    for (line <- Source.fromFile("images/asciiTitle.txt").getLines) {
-      println()
-      print(line)
-    }
-    info("\n\nTo run, enter <T/t> for TextUI or <G/g> for GraphicUI. \n(T/G)?: ")
-
-  }
+  //def runInitializationScreen(): Unit = {
+  //
+  //  for (line <- Source.fromFile("images/asciiTitle.txt").getLines) {
+  //    println()
+  //    print(line)
+  //  }
+  //  info("\n\nTo run, enter <T/t> for TextUI or <G/g> for GraphicUI. \n(T/G)?: ")
+  //
+  //}
 }

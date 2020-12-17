@@ -1,7 +1,6 @@
 package de.htwg.se.qwixx.aview
 
 import de.htwg.se.qwixx.controller.Controller
-import de.htwg.se.qwixx.model.Player
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
@@ -27,9 +26,9 @@ class TextUISpec extends AnyWordSpec with Matchers {
         tui.visualizePlayground() should include("Points:")
         tui.visualizePlayground() should include("Index")
         tui.visualizePlayground() should include("White")
-        tui.visualizePlayground() should include("Yellow")
-        tui.visualizePlayground() should include("Green")
-        tui.visualizePlayground() should include("Blue")
+        tui.visualizePlayground() should include("Color2")
+        tui.visualizePlayground() should include("Color3")
+        tui.visualizePlayground() should include("Color4")
         tui.visualizePlayground() should include("")
         ui.playerList(0).block.rowList(0).locked = true
         tui.visualizePlayground() should include("\uD83D\uDD13 ")
