@@ -1,6 +1,6 @@
 package de.htwg.se.qwixx.model
 
-import scala.util.{Failure, Success, Try}
+import scala.swing.Color
 
 /////////////////////////////////////////////////////////////
 // FileName: Row.scala
@@ -10,7 +10,7 @@ import scala.util.{Failure, Success, Try}
 // Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
-class Row (val rowIdx:Integer, val colorName:String, val strat:String){
+class Row (val rowIdx:Integer, val colorName:Color, val strat:String){
 
   //Validate RowStrategy
   val rowStrategy = RowStrategy

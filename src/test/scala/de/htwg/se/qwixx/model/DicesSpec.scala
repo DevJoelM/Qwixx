@@ -17,7 +17,7 @@ class DicesSpec extends AnyWordSpec with Matchers {
   "A Dice" should {
     "should have" in {
       val d = new Dices
-      d.colorsHex shouldBe a[Array[_]]
+      //d.colorsHex shouldBe a[Array[_]]
       d.colorsName shouldBe a[Array[_]]
       d.cDiceCount should be(4)
       d.dDiceCount should be(2)

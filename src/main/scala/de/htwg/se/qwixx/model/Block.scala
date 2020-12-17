@@ -36,7 +36,7 @@ class Block (val strat: String) {
   def getSplittedPoints(): List[(String,Int)] = {
     var splittedPoints: List[(String, Int)] = List()
     for (idx <- 0 to 3){
-      splittedPoints = (rowList(idx).colorName,rowList(idx).getRowPoints()) :: splittedPoints
+      splittedPoints = (rowList(idx).colorName.toString,rowList(idx).getRowPoints()) :: splittedPoints
     }
     splittedPoints
   }

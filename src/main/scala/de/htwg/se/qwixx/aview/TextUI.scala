@@ -103,7 +103,7 @@ class TextUI(controller: Controller) extends Observer with UIType {
       sb.append("1    2    3    4    5    6    7    8     9   10   11   L\n")
       sb.append("".padTo(70,"─").mkString+"\n")
       for (row <- c.block.rowList){
-        sb.append(row.colorName.padTo(8," ").mkString+"|  ")
+        sb.append(row.colorName.toString.padTo(8," ").mkString+"|  ")
         for (field <- row.fieldList){
           if(field.blockedState){
             sb.append("⬜".padTo(2," ").mkString + pad)

@@ -22,12 +22,20 @@ object Main {
     runInitializationScreen()
 
     val ui = UIType(scala.io.StdIn.readLine(), controller)
+    val gui = UIType("G", controller)
+
+    print()
+
+
     controller.updateGame()
 
     while (controller.gameState.state) {
-      ui.isInstanceOf[TextUI] match {
+      ui.isInstanceOf[
+        TextUI] match {
         case true => print(ui.run(scala.io.StdIn.readLine()))
-        case false => ui.run("")
+        case false => {
+          ui.run("")
+        }
       }
     }
 

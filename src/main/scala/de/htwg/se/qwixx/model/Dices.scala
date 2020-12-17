@@ -1,5 +1,7 @@
 package de.htwg.se.qwixx.model
 
+import de.htwg.se.qwixx.util.GameColors
+
 import scala.util.Random
 
 /////////////////////////////////////////////////////////////
@@ -14,7 +16,7 @@ class Dices {
 
   val cDiceCount: Int = 4
   val dDiceCount: Int = 2
-  val colorsHex = Array("#FFFFFF","#FFFFFF","#FF0000","#FFFF00","#00FF00","#0000FF")
+
   val colorsName = Array("White","White","Red","Yellow","Green","Blue")
   val defaultDices: Array[Dice] = Array.ofDim[Dice](2)
   val coloredDices: Array[Dice] = Array.ofDim[Dice](4)
@@ -27,7 +29,7 @@ class Dices {
       val newDices = new Array[Dice](len)
       for (diceIdx <- 0 to len-1) {
         val idxOffset = getIndexOffset(len)
-        val nd = Dice(diceIdx+idxOffset, colorsHex(diceIdx+idxOffset), colorsName(diceIdx+idxOffset), random.nextInt(5) + 1)
+        val nd = Dice(diceIdx+idxOffset, GameColors.DICE_COLORS(diceIdx+idxOffset), colorsName(diceIdx+idxOffset), random.nextInt(5) + 1)
         if(dices != Option(null)) {
           dices(diceIdx) = nd
         }

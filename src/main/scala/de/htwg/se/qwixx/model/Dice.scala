@@ -1,5 +1,7 @@
 package de.htwg.se.qwixx.model
 
+import scala.swing.Color
+
 /////////////////////////////////////////////////////////////
 // FileName: Dice.scala
 // FileType: Scala Source file
@@ -8,4 +10,4 @@ package de.htwg.se.qwixx.model
 // Last Modified On : 06.11.2020
 /////////////////////////////////////////////////////////////
 
-case class Dice(ID: Int, colorHex: String, colorName: String, value: Int){}
+case class Dice(ID: Int, color: Color, colorName: String, value: Int){}

@@ -3,7 +3,7 @@ package de.htwg.se.qwixx.controller
 
 import de.htwg.se.qwixx.model.{Block, Dice, Dices, Player}
 import de.htwg.se.qwixx.util.{GameState, Observable}
-
+import scala.swing.Publisher
 import scala.util.{Failure, Success, Try}
 
 /////////////////////////////////////////////////////////////
@@ -14,7 +14,7 @@ import scala.util.{Failure, Success, Try}
 // Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
-class Controller() extends Observable {
+class Controller() extends Observable with Publisher{
 
   var playerList = createPlayers("classic")
   val dices = new Dices()
