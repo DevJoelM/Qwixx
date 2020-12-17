@@ -17,7 +17,7 @@ class DiceUI(controller:Controller,dice:Dice) extends BoxPanel(Orientation.Horiz
   val label = {
     new Label() {
       text = dice.value.toString
-      font = new Font("Arial", 1, 25)
+      font = new Font(GameColors.FONTSTYLE, 1, 25)
       if(dice.color == GameColors.ROW_BACKGROUND){
         foreground = GameColors.FOREGROUND
       }else {

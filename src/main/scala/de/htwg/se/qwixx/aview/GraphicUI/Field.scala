@@ -3,6 +3,7 @@ package de.htwg.se.qwixx.aview.GraphicUI
 import de.htwg.se.qwixx.controller.Controller
 import de.htwg.se.qwixx.model.{Field, Row}
 import de.htwg.se.qwixx.util.GameColors
+import de.htwg.se.qwixx.util.GameColors.FONTSTYLE
 
 import java.awt.Color
 import javax.swing.border.EmptyBorder
@@ -20,7 +21,7 @@ class FieldUI(x:Int, y:Int, controller: Controller, field: Field, fieldColor:Col
   val label = {
       new Label() {
         text = field.value.toString
-        font = new Font("Arial", 1, 25)
+        font = new Font(GameColors.FONTSTYLE, 1, 25)
         foreground = fieldColor
         preferredSize = new Dimension(40, 40)
         background = GameColors.ROW_1_FOREGROUND
@@ -74,7 +75,7 @@ class LockUI(y:Int,controller: Controller, row: Row, fieldColor:Color) extends B
         text = "\uD83D\uDD13"
         foreground = fieldColor
       }
-      font = new Font("Arial", 1, 25)
+      font = new Font("Arial", 0, 30)
 
       preferredSize = new Dimension(40, 40)
     }

@@ -25,6 +25,8 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
     redrawPlayground()
   }
 
+  resizable =  false
+
   title = "Qwixx: Digital"
 
   redrawPlayground()
@@ -130,7 +132,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
 
             add(new Label() {
               text = "POINTS"
-              font = new Font("Arial", 1, 20)
+              font = new Font(GameColors.FONTSTYLE, 1, 25)
               foreground = GameColors.FOREGROUND
               border = LineBorder(GameColors.ROW_BACKGROUND_DARKER, 2)
               preferredSize = new Dimension(100, 10)
@@ -143,7 +145,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               contents += new Label() {
                 text = controller.playerList(0).block.rowList(0).getRowPoints().toString
                 foreground = GameColors.ROW_1_BACKGROUND
-                font = new Font("Arial", 1, 20)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
               }
             }, constraints(2, 0, fill = GridBagPanel.Fill.Both))
 
@@ -151,7 +153,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               background = GameColors.ROW_BACKGROUND_DARKER
               contents += new Label() {
                 text = "+"
-                font = new Font("Arial", 1, 25)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
                 preferredSize = new Dimension(25, 50)
                 foreground = GameColors.FOREGROUND
               }
@@ -165,7 +167,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
                 text = controller.playerList(0).block.rowList(1).getRowPoints().toString
 
                 foreground = GameColors.ROW_2_BACKGROUND
-                font = new Font("Arial", 1, 20)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
               }
             }, constraints(4, 0,fill = GridBagPanel.Fill.Both))
 
@@ -173,7 +175,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               background = GameColors.ROW_BACKGROUND_DARKER
               contents += new Label() {
                 text = "+"
-                font = new Font("Arial", 1, 25)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
                 preferredSize = new Dimension(25, 50)
                 foreground = GameColors.FOREGROUND
               }
@@ -186,7 +188,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               contents += new Label() {
                 text = controller.playerList(0).block.rowList(2).getRowPoints().toString
                 foreground = GameColors.ROW_3_BACKGROUND
-                font = new Font("Arial", 1, 20)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
               }
             }, constraints(6, 0, fill = GridBagPanel.Fill.Both))
 
@@ -194,7 +196,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               background = GameColors.ROW_BACKGROUND_DARKER
               contents += new Label() {
                 text = "+"
-                font = new Font("Arial", 1, 25)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
                 preferredSize = new Dimension(25, 50)
                 foreground = GameColors.FOREGROUND
               }
@@ -207,7 +209,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               contents += new Label() {
                 text = controller.playerList(0).block.rowList(3).getRowPoints().toString
                 foreground = GameColors.ROW_4_BACKGROUND
-                font = new Font("Arial", 1, 20)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
               }
             }, constraints(8, 0, fill = GridBagPanel.Fill.Both))
 
@@ -215,7 +217,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               background = GameColors.ROW_BACKGROUND_DARKER
               contents += new Label() {
                 text = "-"
-                font = new Font("Arial", 1, 25)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
                 preferredSize = new Dimension(25, 50)
                 foreground = GameColors.FOREGROUND
               }
@@ -228,7 +230,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               contents += new Label() {
                 text = "X"
                 foreground = GameColors.FOREGROUND
-                font = new Font("Arial", 1, 20)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
               }
             }, constraints(10, 0, fill = GridBagPanel.Fill.Both))
 
@@ -236,7 +238,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               background = GameColors.ROW_BACKGROUND_DARKER
               contents += new Label() {
                 text = "="
-                font = new Font("Arial", 1, 25)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
                 preferredSize = new Dimension(25, 50)
                 foreground = GameColors.FOREGROUND
               }
@@ -249,7 +251,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               contents += new Label() {
                 text = controller.playerList(0).block.getCommulatedPoints().toString
                 foreground = GameColors.FOREGROUND
-                font = new Font("Arial", 1, 20)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
               }
             }, constraints(12, 0,fill = GridBagPanel.Fill.Both))
           }
@@ -279,7 +281,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
 
             add(new Label() {
               text = "FAILS"
-              font = new Font("Arial", 1, 20)
+              font = new Font(GameColors.FONTSTYLE, 1, 25)
               foreground = GameColors.FOREGROUND
               border = LineBorder(GameColors.ROW_BACKGROUND_DARKER, 2)
               preferredSize = new Dimension(100, 10)
@@ -292,7 +294,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               contents += new Label() {
                 text = "X"
                 foreground = GameColors.FOREGROUND
-                font = new Font("Arial", 1, 20)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
               }
             }, constraints(2, 0, gridwidth = 2, fill = GridBagPanel.Fill.Both))
 
@@ -303,7 +305,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               contents += new Label() {
                 text = "X"
                 foreground = GameColors.FOREGROUND
-                font = new Font("Arial", 1, 20)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
               }
             }, constraints(4, 0, fill = GridBagPanel.Fill.Both))
 
@@ -315,7 +317,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               contents += new Label() {
                 text = "X"
                 foreground = GameColors.FOREGROUND
-                font = new Font("Arial", 1, 20)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
               }
             }, constraints(5, 0, fill = GridBagPanel.Fill.Both))
 
@@ -326,14 +328,60 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               contents += new Label() {
                 text = "X"
                 foreground = GameColors.FOREGROUND
-                font = new Font("Arial", 1, 20)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
               }
             }, constraints(6, 0, fill = GridBagPanel.Fill.Both))
 
+
             add(new GridPanel(1, 1) {
-              preferredSize = new Dimension(250, 10)
+              preferredSize = new Dimension(150, 10)
               background = GameColors.ROW_BACKGROUND_DARKER
-            }, constraints(7, 0, gridwidth = 3, fill = GridBagPanel.Fill.Both))
+            }, constraints(7, 0, gridwidth = 1, fill = GridBagPanel.Fill.Both))
+
+            add(new GridPanel(1, 1) {
+              preferredSize = new Dimension(50, 50)
+              border = LineBorder(GameColors.ROW_BACKGROUND_DARKER, 2)
+              background = GameColors.ROW_BACKGROUND
+              contents += new Label() {
+                listenTo(mouse.clicks)
+                text = "↶"
+                foreground = GameColors.FOREGROUND
+                font = new Font("Arial", 1, 25)
+                reactions += {
+                  case e: MousePressed => {
+                    foreground = GameColors.FOREGROUND_BRIGHTER
+                  }
+                  case e: MouseReleased => {
+                    background = GameColors.ROW_BACKGROUND
+                    controller.undoManager.undoCheck
+                    redrawPlayground()
+                  }
+                }
+              }
+            }, constraints(8, 0, fill = GridBagPanel.Fill.Both))
+
+            add(new GridPanel(1, 1) {
+              preferredSize = new Dimension(50, 50)
+              border = LineBorder(GameColors.ROW_BACKGROUND_DARKER, 2)
+              background = GameColors.ROW_BACKGROUND
+              contents += new Label() {
+                listenTo(mouse.clicks)
+                text = "↷"
+                foreground = GameColors.FOREGROUND
+                font = new Font("Arial", 1, 25)
+                reactions += {
+
+                  case e: MousePressed => {
+                    foreground = GameColors.FOREGROUND_BRIGHTER
+                  }
+                  case e: MouseReleased => {
+                    background = GameColors.ROW_BACKGROUND
+                    controller.undoManager.redoStep()
+                    redrawPlayground()
+                  }
+                }
+              }
+            }, constraints(9, 0, fill = GridBagPanel.Fill.Both))
 
             add(new GridPanel(1, 1) {
               border = LineBorder(GameColors.ROW_BACKGROUND_DARKER, 2)
@@ -343,7 +391,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
                 listenTo(mouse.clicks)
                 text = "DICE!"
                 foreground = GameColors.FOREGROUND
-                font = new Font("Arial", 1, 20)
+                font = new Font(GameColors.FONTSTYLE, 1, 25)
                 reactions += {
 
                   case e: MousePressed => {
@@ -356,7 +404,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
                   }
                 }
               }
-            }, constraints(10, 0, gridwidth = 2, fill = GridBagPanel.Fill.Both))
+            }, constraints(13, 0, gridwidth = 2, fill = GridBagPanel.Fill.Both))
           }
         },
         constraints(0, 5, gridwidth = 13, gridheight = 2, fill = GridBagPanel.Fill.Both)
