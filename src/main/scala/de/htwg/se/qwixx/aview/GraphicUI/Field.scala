@@ -3,7 +3,6 @@ package de.htwg.se.qwixx.aview.GraphicUI
 import de.htwg.se.qwixx.controller.Controller
 import de.htwg.se.qwixx.model.{Field, Row}
 import de.htwg.se.qwixx.util.GameColors
-import de.htwg.se.qwixx.util.GameColors.FONTSTYLE
 
 import java.awt.Color
 import javax.swing.border.EmptyBorder
@@ -11,8 +10,6 @@ import scala.swing._
 import scala.swing.event.MousePressed
 
 class FieldUI(x:Int, y:Int, controller: Controller, field: Field, fieldColor:Color, fieldColor_Blocked:Color) extends BoxPanel(Orientation.Horizontal) {
-
-  //border  = LineBorder(GameColors.ROW_BACKGROUND_DARKER, 5)
   border = new EmptyBorder(0,0,5,0)
   background = GameColors.ROW_BACKGROUND_DARKER
 
@@ -35,7 +32,6 @@ class FieldUI(x:Int, y:Int, controller: Controller, field: Field, fieldColor:Col
   }
 
   val cell = new BoxPanel(Orientation.Vertical) {
-
     preferredSize = new Dimension(65, 50)
       contents += new GridPanel(1,1){
         if(field.blockedState) {
@@ -82,7 +78,6 @@ class LockUI(y:Int,controller: Controller, row: Row, fieldColor:Color) extends B
   }
 
   val cell = new BoxPanel(Orientation.Vertical) {
-
     preferredSize = new Dimension(50, 50)
     contents += new GridPanel(1,1){
       if(row.locked) {

@@ -355,6 +355,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
                     background = GameColors.ROW_BACKGROUND
                     controller.undoManager.undoCheck
                     redrawPlayground()
+                    controller.updateGame()
                   }
                 }
               }
@@ -378,6 +379,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
                     background = GameColors.ROW_BACKGROUND
                     controller.undoManager.redoStep()
                     redrawPlayground()
+                    controller.updateGame()
                   }
                 }
               }
