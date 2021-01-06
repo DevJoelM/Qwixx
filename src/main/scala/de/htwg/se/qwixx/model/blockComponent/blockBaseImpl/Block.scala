@@ -1,6 +1,7 @@
-package de.htwg.se.qwixx.model.blockComponent
+package de.htwg.se.qwixx.model.blockComponent.blockBaseImpl
 
-import de.htwg.se.qwixx.model.strategyComponent.RowsStrategy
+import de.htwg.se.qwixx.model.blockComponent.blockInterface
+import de.htwg.se.qwixx.model.strategyComponent.strategyBaseImpl.RowsStrategy
 
 /////////////////////////////////////////////////////////////
 // FileName: Block.scala

@@ -1,6 +1,6 @@
-package de.htwg.se.qwixx.model.gameComponent
+package de.htwg.se.qwixx.model.gameComponent.gameBaseImpl
 
-import de.htwg.se.qwixx.model.gameComponent
+import de.htwg.se.qwixx.model.gameComponent.{gameBaseImpl, gameInterface}
 import de.htwg.se.qwixx.util.GameColors
 
 import scala.collection.mutable.ListBuffer
@@ -32,7 +32,7 @@ class Dices extends gameInterface {
       val newDices = new Array[Dice](len)
       for (diceIdx <- 0 to len-1) {
         val idxOffset = getIndexOffset(len)
-        val nd = gameComponent.Dice(diceIdx+idxOffset, GameColors.DICE_COLORS_REV(diceIdx+idxOffset), colorsName(diceIdx+idxOffset), random.nextInt(6) + 1)
+        val nd = gameBaseImpl.Dice(diceIdx+idxOffset, GameColors.DICE_COLORS_REV(diceIdx+idxOffset), colorsName(diceIdx+idxOffset), random.nextInt(6) + 1)
         if(dices != Option(null)) {
           dices(diceIdx) = nd
         }

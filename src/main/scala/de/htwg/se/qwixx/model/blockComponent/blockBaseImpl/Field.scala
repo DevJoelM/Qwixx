@@ -1,4 +1,4 @@
-package de.htwg.se.qwixx.model.blockComponent
+package de.htwg.se.qwixx.model.blockComponent.blockBaseImpl
 
 /////////////////////////////////////////////////////////////
 // FileName: Field.scala

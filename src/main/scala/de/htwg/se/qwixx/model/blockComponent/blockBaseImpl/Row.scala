@@ -1,7 +1,7 @@
-package de.htwg.se.qwixx.model.blockComponent
+package de.htwg.se.qwixx.model.blockComponent.blockBaseImpl
 
-import de.htwg.se.qwixx.model.rowInterface
-import de.htwg.se.qwixx.model.strategyComponent.RowStrategy
+import de.htwg.se.qwixx.model.blockComponent.rowInterface
+import de.htwg.se.qwixx.model.strategyComponent.strategyBaseImpl.RowStrategy
 
 import scala.swing.Color
 
