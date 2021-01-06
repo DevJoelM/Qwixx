@@ -1,16 +1,15 @@
-package de.htwg.se.qwixx.aview
+package de.htwg.se.qwixx.model.gameComponent
 
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
 /////////////////////////////////////////////////////////////
-// FileName: GraphicUISpec.scala
+// FileName: DiceSpec.scala
 // FileType: Scala-Test Source file
 // Author: Joel Merath, Tim Disch
-// Created On : 12.11.2020
-// Last Modified On : 12.11.2020
+// Created On : 06.11.2020
+// Last Modified On : 06.11.2020
 /////////////////////////////////////////////////////////////
 
-class GraphicUISpec extends AnyWordSpec with Matchers {
-
+class DiceSpec extends AnyWordSpec with Matchers {
 }

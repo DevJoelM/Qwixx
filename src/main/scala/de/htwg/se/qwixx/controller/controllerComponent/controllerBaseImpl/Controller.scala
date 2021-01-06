@@ -1,10 +1,12 @@
 
-package de.htwg.se.qwixx.controller
+package de.htwg.se.qwixx.controller.controllerComponent.controllerBaseImpl
 
-import de.htwg.se.qwixx.model.{Block, Dice, Dices, Player}
-import de.htwg.se.qwixx.util.{GameState, Observable}
+import de.htwg.se.qwixx.controller.controllerComponent.ControllerInterface
+import de.htwg.se.qwixx.model.blockComponent.blockBaseImpl.Block
+import de.htwg.se.qwixx.model.gameComponent.gameBaseImpl.{Dice, Dices, Player}
+import de.htwg.se.qwixx.util.GameState
 
-import scala.swing.{Color, Publisher}
+import scala.swing.Color
 import scala.util.{Failure, Success, Try}
 
 /////////////////////////////////////////////////////////////
@@ -15,7 +17,7 @@ import scala.util.{Failure, Success, Try}
 // Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
-class Controller() extends Observable with Publisher{
+class Controller() extends ControllerInterface{
 
   var playerList = createPlayers("classic")
   val dices = new Dices()
@@ -128,5 +130,4 @@ class Controller() extends Observable with Publisher{
   def getPlayerSplittedPoints(playerID:Int):List[(String,Int)] = {
     playerList(playerID).block.getSplittedPoints()
   }
-
 }

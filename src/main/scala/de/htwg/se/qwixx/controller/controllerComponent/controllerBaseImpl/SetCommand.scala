@@ -1,4 +1,4 @@
-package de.htwg.se.qwixx.controller
+package de.htwg.se.qwixx.controller.controllerComponent.controllerBaseImpl
 
 trait Command {
   def doCheck:Unit

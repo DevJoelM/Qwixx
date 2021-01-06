@@ -1,4 +1,4 @@
-package de.htwg.se.qwixx.model
+package de.htwg.se.qwixx.model.blockComponent
 
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec

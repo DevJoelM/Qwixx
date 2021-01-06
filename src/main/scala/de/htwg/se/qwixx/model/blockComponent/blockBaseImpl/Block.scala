@@ -1,4 +1,6 @@
-package de.htwg.se.qwixx.model
+package de.htwg.se.qwixx.model.blockComponent
+
+import de.htwg.se.qwixx.model.strategyComponent.RowsStrategy
 
 /////////////////////////////////////////////////////////////
 // FileName: Block.scala
@@ -8,7 +10,7 @@ package de.htwg.se.qwixx.model
 // Last Modified On : 11.11.2020
 /////////////////////////////////////////////////////////////
 
-class Block (val strat: String) {
+class Block (val strat: String) extends blockInterface{
 
   //Validate RowsStrategy
   val rowsStrategy = RowsStrategy

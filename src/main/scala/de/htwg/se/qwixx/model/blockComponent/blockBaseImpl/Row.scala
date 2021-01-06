@@ -1,4 +1,7 @@
-package de.htwg.se.qwixx.model
+package de.htwg.se.qwixx.model.blockComponent
+
+import de.htwg.se.qwixx.model.rowInterface
+import de.htwg.se.qwixx.model.strategyComponent.RowStrategy
 
 import scala.swing.Color
 
@@ -10,7 +13,7 @@ import scala.swing.Color
 // Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
-class Row (val rowIdx:Integer, val colorName:Color, val strat:String){
+class Row (val rowIdx:Integer, val colorName:Color, val strat:String) extends rowInterface{
 
   //Validate RowStrategy
   val rowStrategy = RowStrategy
@@ -40,6 +43,7 @@ class Row (val rowIdx:Integer, val colorName:Color, val strat:String){
     }
   }
 
+  //Field
   def checkField(fieldIdx:Int): (Boolean,String) ={
     if(!fieldList(fieldIdx).blockedState) {
       if(!fieldList(fieldIdx).checkedState) {

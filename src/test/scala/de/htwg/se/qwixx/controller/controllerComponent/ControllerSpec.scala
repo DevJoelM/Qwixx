@@ -1,5 +1,6 @@
-package de.htwg.se.qwixx.controller
+package de.htwg.se.qwixx.controller.controllerComponent
 
+import de.htwg.se.qwixx.controller.controllerComponent.controllerBaseImpl.Controller
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 

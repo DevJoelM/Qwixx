@@ -1,7 +1,7 @@
 package de.htwg.se.qwixx
 
 import de.htwg.se.qwixx.aview.{TextUI, UIType}
-import de.htwg.se.qwixx.controller.Controller
+import de.htwg.se.qwixx.controller.controllerComponent.controllerBaseImpl.Controller
 
 /////////////////////////////////////////////////////////////
 // FileName: Main.scala

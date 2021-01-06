@@ -1,7 +1,7 @@
 package de.htwg.se.qwixx.aview
 
 import de.htwg.se.qwixx.aview.GraphicUI.GraphicUI
-import de.htwg.se.qwixx.controller.Controller
+import de.htwg.se.qwixx.controller.controllerComponent.controllerBaseImpl.Controller
 import de.htwg.se.qwixx.util.Logger.error
 
 trait UIType {

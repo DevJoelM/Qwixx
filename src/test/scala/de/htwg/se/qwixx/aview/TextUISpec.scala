@@ -1,6 +1,6 @@
 package de.htwg.se.qwixx.aview
 
-import de.htwg.se.qwixx.controller.Controller
+import de.htwg.se.qwixx.controller.controllerComponent.controllerBaseImpl.Controller
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 

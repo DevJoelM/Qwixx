@@ -1,5 +1,6 @@
-package de.htwg.se.qwixx.model
+package de.htwg.se.qwixx.model.blockComponent
 
+import de.htwg.se.qwixx.model.blockComponent.blockBaseImpl.Block
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 

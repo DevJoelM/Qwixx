@@ -1,7 +1,7 @@
 package de.htwg.se.qwixx.aview.GraphicUI
 
-import de.htwg.se.qwixx.controller.Controller
-import de.htwg.se.qwixx.model.{Field, Row}
+import de.htwg.se.qwixx.controller.controllerComponent.controllerBaseImpl.Controller
+import de.htwg.se.qwixx.model.blockComponent.blockBaseImpl.{Field, Row}
 import de.htwg.se.qwixx.util.GameColors
 
 import java.awt.Color

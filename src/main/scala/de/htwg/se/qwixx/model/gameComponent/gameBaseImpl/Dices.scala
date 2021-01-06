@@ -1,5 +1,6 @@
-package de.htwg.se.qwixx.model
+package de.htwg.se.qwixx.model.gameComponent
 
+import de.htwg.se.qwixx.model.gameComponent
 import de.htwg.se.qwixx.util.GameColors
 
 import scala.collection.mutable.ListBuffer
@@ -14,7 +15,7 @@ import scala.util.Random
 // Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
-class Dices {
+class Dices extends gameInterface {
 
   val cDiceCount: Int = 4
   val dDiceCount: Int = 2
@@ -31,7 +32,7 @@ class Dices {
       val newDices = new Array[Dice](len)
       for (diceIdx <- 0 to len-1) {
         val idxOffset = getIndexOffset(len)
-        val nd = Dice(diceIdx+idxOffset, GameColors.DICE_COLORS_REV(diceIdx+idxOffset), colorsName(diceIdx+idxOffset), random.nextInt(6) + 1)
+        val nd = gameComponent.Dice(diceIdx+idxOffset, GameColors.DICE_COLORS_REV(diceIdx+idxOffset), colorsName(diceIdx+idxOffset), random.nextInt(6) + 1)
         if(dices != Option(null)) {
           dices(diceIdx) = nd
         }
@@ -61,28 +62,3 @@ class Dices {
   }
 
 }
-
-//combinations = ((dd.color,dd.value+dd_secound.value),(dd,dd_secound)) :: combinationsor(dd <- defaultDices){
-//  for(dd_secound <- defaultDices){
-//    if(dd.ID != dd_secound.ID){
-//      combinations = ((dd.color,dd.value+dd_secound.value),(dd,dd_secound)) :: combinations
-//    }
-//  }
-//  for(cd <- coloredDices){
-//    combinations = ((cd.color,dd.value+cd.value),(dd,cd)) :: combinations
-//  }
-//}
-
-/*
-*
- var combinations: List[((Color, Int), (Dice, Dice))] = List()
-    for(c <- GameColors.COLORED_DICE_COLORS){
-      combinations = ((c,defaultDices(0).value + defaultDices(1).value),(defaultDices(0), defaultDices(1))) :: combinations
-    }
-    for (d <- defaultDices){
-      for(c <- coloredDices){
-        combinations = ((c.color,d.value + c.value),(d, c)) :: combinations
-      }
-    }
-    combinations
-* */

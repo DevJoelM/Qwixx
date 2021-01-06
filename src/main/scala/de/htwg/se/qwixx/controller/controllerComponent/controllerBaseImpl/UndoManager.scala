@@ -1,4 +1,4 @@
-package de.htwg.se.qwixx.controller
+package de.htwg.se.qwixx.controller.controllerComponent.controllerBaseImpl
 
 /////////////////////////////////////////////////////////////
 // FileName: UndoManager.scala

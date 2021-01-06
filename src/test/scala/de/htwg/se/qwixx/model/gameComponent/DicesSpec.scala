@@ -1,5 +1,6 @@
-package de.htwg.se.qwixx.model
+package de.htwg.se.qwixx.model.gameComponent
 
+import de.htwg.se.qwixx.model.gameComponent.gameBaseImpl.Dices
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
