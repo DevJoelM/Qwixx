@@ -17,7 +17,7 @@ class Block (val strat: String) extends blockInterface{
   val rowsStrategy = RowsStrategy
   rowsStrategy.setStrategy(strat)
 
-  val rowList = rowsStrategy.strategy
+  var rowList = rowsStrategy.strategy
 
   def getLockedRows(): Int = {
     var res = 0

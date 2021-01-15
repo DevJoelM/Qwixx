@@ -3,6 +3,7 @@ package de.htwg.se.qwixx.controller.controllerComponent.controllerBaseImpl
 
 import de.htwg.se.qwixx.controller.controllerComponent.ControllerInterface
 import de.htwg.se.qwixx.model.blockComponent.blockBaseImpl.Block
+
 import de.htwg.se.qwixx.model.gameComponent.gameBaseImpl.{Dice, Dices, Player}
 import de.htwg.se.qwixx.util.GameState
 
@@ -119,6 +120,10 @@ class Controller() extends ControllerInterface{
     players.sortBy(_.ID)
   }
 
+  def getPlayerList(): List[Player] = {
+    playerList
+  }
+
   def getPlayerName(playerID:Int):String = {
     playerList(playerID).name
   }
@@ -130,4 +135,45 @@ class Controller() extends ControllerInterface{
   def getPlayerSplittedPoints(playerID:Int):List[(String,Int)] = {
     playerList(playerID).block.getSplittedPoints()
   }
+
+  def getUndoManager(): UndoManager ={
+    this.undoManager
+  }
+
+  override def getGameState() = gameState
+
+  override def getController(): Controller = this
+
+  def saveGameXml():Unit = {
+    import de.htwg.se.qwixx.model.fielIOComponent.fileIOxml.FileIO
+    val fio = new FileIO
+    fio.saveGame(this)
+  }
+
+  def loadGameXml():Unit = {
+    import de.htwg.se.qwixx.model.fielIOComponent.fileIOxml.FileIO
+    val fio = new FileIO
+    loadGame(fio.loadGame().getController())
+  }
+
+  def saveGameJson():Unit = {
+    import de.htwg.se.qwixx.model.fielIOComponent.fileIOJson.FileIO
+    val fio = new FileIO
+    fio.saveGame(this)
+  }
+
+  def loadGameJson():Unit = {
+    import de.htwg.se.qwixx.model.fielIOComponent.fileIOJson.FileIO
+    val fio = new FileIO
+    loadGame(fio.loadGame().getController())
+  }
+
+  def loadGame(contr:Controller): Unit ={
+    playerList(0).block.rowList = contr.playerList(0).block.rowList sortBy(_.rowIdx)
+    for(r <- playerList(0).block.rowList){
+      r.updateFields()
+    }
+    updateGame()
+  }
+
 }

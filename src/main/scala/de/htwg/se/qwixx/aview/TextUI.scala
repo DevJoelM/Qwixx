@@ -1,6 +1,6 @@
 package de.htwg.se.qwixx.aview
 
-import de.htwg.se.qwixx.controller.controllerComponent.controllerBaseImpl.Controller
+import de.htwg.se.qwixx.controller.controllerComponent.ControllerInterface
 import de.htwg.se.qwixx.util.Observer
 
 import scala.util.control.Breaks._
@@ -14,7 +14,7 @@ import scala.util.control.Exception.allCatch
 // Last Modified On : 18.11.2020
 /////////////////////////////////////////////////////////////
 
-class TextUI(controller: Controller) extends Observer with UIType {
+class TextUI(controller: ControllerInterface) extends Observer with UIType {
 
   controller.add(this)
 
@@ -52,15 +52,26 @@ class TextUI(controller: Controller) extends Observer with UIType {
         strBuilder.append("\nInput not allowed!\n")
         break
       } else if (cmd.size == 1 && cmd(0) == "t") {
-        controller.throwDices()
-      } else if (cmd.size == 1 && cmd(0) == "undo") {
-        controller.undoManager.undoCheck
-        controller.updateGame()
+        controller.throwDices()}
+      else if (cmd.size == 1 && cmd(0) == "loadxml") {
+        controller.getController().loadGameXml()}
+        else if (cmd.size == 1 && cmd(0) == "savexml") {
+        controller.getController().saveGameXml()
+      }
+      else if (cmd.size == 1 && cmd(0) == "loadjson") {
+        controller.getController().loadGameJson()
+        }
+      else if (cmd.size == 1 && cmd(0) == "savejson") {
+        controller.getController().saveGameJson()
+      }
+      else if (cmd.size == 1 && cmd(0) == "undo") {
+        controller.getUndoManager().undoCheck
+        controller.updateGame
       } else if (cmd.size == 1 && cmd(0) == "redo") {
-        controller.undoManager.redoStep
-        controller.updateGame()
+        controller.getUndoManager().redoStep
+        controller.updateGame
       }  else if (cmd.size == 1 && cmd(0) == "exit") {
-        controller.gameState.handle(false)
+        controller.getGameState().handle(false)
         break()
       }else if (cmd(2) == "l") {
         strBuilder.append("\n" + controller.lockRow(cmd0Int.get - 1,cmd1Int.get - 1)._2)
@@ -76,7 +87,7 @@ class TextUI(controller: Controller) extends Observer with UIType {
         }
       }
       strBuilder.append("\n")
-      if(controller.checkIfGameIsEnded()){
+      if(controller.checkIfGameIsEnded){
         strBuilder.append("\nGame Finished!")
         break()
       }
@@ -93,7 +104,7 @@ class TextUI(controller: Controller) extends Observer with UIType {
     val sb = new StringBuilder()
     sb.clear()
     val pad = "   "
-    for(c <- controller.playerList){
+    for(c <- controller.getPlayerList()){
       println()
       sb.append("".padTo(70,"─").mkString+"\n")
       sb.append(("PLAYER " + (c.ID+1).toString))

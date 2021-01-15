@@ -15,6 +15,7 @@ import scala.swing.Color
 
 class Row (val rowIdx:Integer, val colorName:Color, val strat:String) extends rowInterface{
 
+
   //Validate RowStrategy
   val rowStrategy = RowStrategy
   rowStrategy.setStrategy(strat)
@@ -41,6 +42,16 @@ class Row (val rowIdx:Integer, val colorName:Color, val strat:String) extends ro
     {
       (false, String.format("Row (%s) is already locked!", (rowIdx+1).toString))
     }
+  }
+
+  def getCheckedFields():List[Field] = {
+    var s : List[Field] = List()
+    for(f <- fieldList){
+      if(f.checkedState){
+        s = f :: s
+      }
+    }
+    s
   }
 
   //Field

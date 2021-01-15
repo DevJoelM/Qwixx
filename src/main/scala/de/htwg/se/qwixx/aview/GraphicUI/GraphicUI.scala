@@ -1,7 +1,7 @@
 package de.htwg.se.qwixx.aview.GraphicUI
 
 import de.htwg.se.qwixx.aview.UIType
-import de.htwg.se.qwixx.controller.controllerComponent.controllerBaseImpl.Controller
+import de.htwg.se.qwixx.controller.controllerComponent.ControllerInterface
 import de.htwg.se.qwixx.util.{GameColors, Observer}
 
 import scala.swing.Swing.LineBorder
@@ -16,7 +16,7 @@ import scala.swing.event.{MousePressed, MouseReleased}
 // Last Modified On : 11.11.2020
 /////////////////////////////////////////////////////////////
 
-class GraphicUI(controller: Controller) extends Frame with UIType with Observer {
+class GraphicUI(controller: ControllerInterface) extends Frame with UIType with Observer {
 
   listenTo(controller)
   controller.add(this)
@@ -63,17 +63,17 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
           //background = GameColors.ROW_BACKGROUND_DARKER
           minimumSize = new Dimension(1000, 1000)
           var y = 0
-          for (r <- controller.playerList(0).block.rowList) {
+          for (r <- controller.getPlayerList()(0).block.rowList) {
             var x = 0
             contents += new BoxPanel(Orientation.Horizontal) {
               contents += new GridPanel(1, 11) {
                 background = GameColors.ROW_BACKGROUND
                 maximumSize = new Dimension(1000, 100)
                 for (f <- r.fieldList) {
-                  contents += new FieldUI(x,y,controller,f, r.colorName,GameColors.ROW_COLORS_BLOCKED(y))
+                  contents += new FieldUI(x,y,controller.getController(),f, r.colorName,GameColors.ROW_COLORS_BLOCKED(y))
                   x += 1
                 }
-                contents += new LockUI(y,controller,r, r.colorName)
+                contents += new LockUI(y,controller.getController(),r, r.colorName)
               }
             }
             y += 1
@@ -88,10 +88,10 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
           maximumSize = new Dimension(70,40)
           val dices = controller.getDicesList()
           for(x <- 2 to 5){
-            contents += new DiceUI(controller,dices(x))
+            contents += new DiceUI(controller.getController(),dices(x))
           }
           for(x <- 0 to 1){
-            contents += new DiceUI(controller,dices(x))
+            contents += new DiceUI(controller.getController(),dices(x))
           }
         },
         constraints(14, 0, gridheight = 7, gridwidth = 2 ,fill = GridBagPanel.Fill.Both)
@@ -143,7 +143,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               border = LineBorder(GameColors.ROW_BACKGROUND_DARKER, 2)
               background = GameColors.ROW_1_Blocked
               contents += new Label() {
-                text = controller.playerList(0).block.rowList(0).getRowPoints().toString
+                text = controller.getPlayerList()(0).block.rowList(0).getRowPoints().toString
                 foreground = GameColors.ROW_1_BACKGROUND
                 font = new Font(GameColors.FONTSTYLE, 1, 25)
               }
@@ -164,7 +164,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               border = LineBorder(GameColors.ROW_BACKGROUND_DARKER, 2)
               background = GameColors.ROW_2_Blocked
               contents += new Label() {
-                text = controller.playerList(0).block.rowList(1).getRowPoints().toString
+                text = controller.getPlayerList()(0).block.rowList(1).getRowPoints().toString
 
                 foreground = GameColors.ROW_2_BACKGROUND
                 font = new Font(GameColors.FONTSTYLE, 1, 25)
@@ -186,7 +186,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               border = LineBorder(GameColors.ROW_BACKGROUND_DARKER, 2)
               background = GameColors.ROW_3_Blocked
               contents += new Label() {
-                text = controller.playerList(0).block.rowList(2).getRowPoints().toString
+                text = controller.getPlayerList()(0).block.rowList(2).getRowPoints().toString
                 foreground = GameColors.ROW_3_BACKGROUND
                 font = new Font(GameColors.FONTSTYLE, 1, 25)
               }
@@ -207,7 +207,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               border = LineBorder(GameColors.ROW_BACKGROUND_DARKER, 2)
               background = GameColors.ROW_4_Blocked
               contents += new Label() {
-                text = controller.playerList(0).block.rowList(3).getRowPoints().toString
+                text = controller.getPlayerList()(0).block.rowList(3).getRowPoints().toString
                 foreground = GameColors.ROW_4_BACKGROUND
                 font = new Font(GameColors.FONTSTYLE, 1, 25)
               }
@@ -249,7 +249,7 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
               preferredSize = new Dimension(100, 10)
               background = GameColors.ROW_BACKGROUND
               contents += new Label() {
-                text = controller.playerList(0).block.getCommulatedPoints().toString
+                text = controller.getPlayerList()(0).block.getCommulatedPoints().toString
                 foreground = GameColors.FOREGROUND
                 font = new Font(GameColors.FONTSTYLE, 1, 25)
               }
@@ -353,9 +353,9 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
                   }
                   case e: MouseReleased => {
                     background = GameColors.ROW_BACKGROUND
-                    controller.undoManager.undoCheck
+                    controller.getUndoManager().undoCheck
                     redrawPlayground()
-                    controller.updateGame()
+                    controller.updateGame
                   }
                 }
               }
@@ -377,9 +377,9 @@ class GraphicUI(controller: Controller) extends Frame with UIType with Observer 
                   }
                   case e: MouseReleased => {
                     background = GameColors.ROW_BACKGROUND
-                    controller.undoManager.redoStep()
+                    controller.getUndoManager().redoStep()
                     redrawPlayground()
-                    controller.updateGame()
+                    controller.updateGame
                   }
                 }
               }
