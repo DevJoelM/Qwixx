@@ -30,7 +30,7 @@ class FileIO extends FileIOInterface {
    */
   override def loadGame: ControllerInterface = {
 
-    val file = scala.xml.XML.loadFile("save.xml")
+    val file = scala.xml.XML.loadFile("exports/save.xml")
     val root = file \\ "game"
     val rowNodes = root \\ "Row"
 
@@ -59,7 +59,7 @@ class FileIO extends FileIOInterface {
    * @param controller
    */
   def saveGame(controller: Controller): Unit = {
-    val printWriter = new PrintWriter(new File("save.xml"))
+    val printWriter = new PrintWriter(new File("exports/save.xml"))
     val prettyPrinter = new PrettyPrinter(120, 4)
     val xml = prettyPrinter.format(gameToXML(controller))
     printWriter.write(xml)

@@ -30,7 +30,7 @@ class FileIO extends FileIOInterface {
    * @return a ControllerInterfaces based Object.
    */
   override def loadGame(): ControllerInterface = {
-    val source: String = Source.fromFile("save_json.json").getLines.mkString
+    val source: String = Source.fromFile("exports/save_json.json").getLines.mkString
     val json: JsValue = Json.parse(source)
     val injector = Guice.createInjector(new QwixxModule)
     val controllerInt = injector.getInstance(classOf[ControllerInterface])
@@ -62,7 +62,7 @@ class FileIO extends FileIOInterface {
 
   override def saveGame(controller: Controller): Unit = {
     import java.io._
-    val pw = new PrintWriter(new File("save_json.json"))
+    val pw = new PrintWriter(new File("exports/save_json.json"))
     pw.write(Json.prettyPrint(gameToJson(controller)))
     pw.close
   }

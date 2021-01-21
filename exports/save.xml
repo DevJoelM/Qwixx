@@ -1,0 +1,23 @@
+<game>
+    <Row Ridx="1" rowColor="#3e65d5" strat="sorted">
+        <Field Fidx="6"/>
+        <Field Fidx="10"/>
+    </Row>
+    <Row Ridx="2" rowColor="#603ed5" strat="sorted">
+        <Field Fidx="0"/>
+        <Field Fidx="3"/>
+        <Field Fidx="5"/>
+        <Field Fidx="10"/>
+    </Row>
+    <Row Ridx="3" rowColor="#d54e3e" strat="reversed">
+        <Field Fidx="5"/>
+        <Field Fidx="7"/>
+        <Field Fidx="8"/>
+        <Field Fidx="9"/>
+    </Row>
+    <Row Ridx="4" rowColor="#d57f3e" strat="reversed">
+        <Field Fidx="3"/>
+        <Field Fidx="6"/>
+        <Field Fidx="7"/>
+    </Row>
+</game>
