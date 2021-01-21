@@ -1,7 +1,7 @@
 ![Logo](images/qwixx_logo.png)
 
-[![Build Status](https://travis-ci.org/DevJoelM/Qwixx.svg?branch=feature%2FSE-Task10)](https://travis-ci.org/DevJoelM/Qwixx)
-[![Coverage Status](https://coveralls.io/repos/github/DevJoelM/Qwixx/badge.svg?branch=feature/SE-Task10)](https://coveralls.io/github/DevJoelM/Qwixx?branch=feature/SE-Task06)
+[![Build Status](https://travis-ci.org/DevJoelM/Qwixx.svg?branch=feature%2FSE-Task13)](https://travis-ci.org/DevJoelM/Qwixx)
+[![Coverage Status](https://coveralls.io/repos/github/DevJoelM/Qwixx/badge.svg?branch=feature/SE-Task13)](https://coveralls.io/github/DevJoelM/Qwixx?branch=feature/SE-Task06)
 
 Implementation of the game **Qwixx** for our software engineering project.
 
