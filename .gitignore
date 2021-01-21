@@ -1,2 +1,41 @@
+# Mac
+.DS_Store
+# Eclipse
+bin/
+.settings/
+.classpath
+# Intellij
+/.idea/
+/out/
+# Maven
+log/
+target/
+# Gradle
+/.gradle/
+/build/
+pom.xml
+# Application
+/sudoku.log
+# sbt
+.cache
+.history
+.lib/
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+project/target/
+project/project/
+logs/
+project/.sbtserver
+.sbtserver/
+# Scala-IDE specific
+.scala_dependencies
+.worksheet
+build.sbt
 
-.idea/
+.bsp/sbt.json
+
+Qwixx/Qwixx.iml
