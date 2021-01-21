@@ -94,6 +94,9 @@ class Controller() extends ControllerInterface{
   //Row commands
   def lockRow(playerID:Int, rowID:Int): (Boolean,String) = {
     notifyObservers
+    if(checkIfGameIsEnded()){
+      System.exit(0)
+    }
     playerList(playerID).block.rowList(rowID).lockRow()
   }
 

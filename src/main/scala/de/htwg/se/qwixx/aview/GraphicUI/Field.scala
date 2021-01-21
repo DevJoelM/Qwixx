@@ -18,7 +18,7 @@ class FieldUI(x:Int, y:Int, controller: Controller, field: Field, fieldColor:Col
   val label = {
       new Label() {
         text = field.value.toString
-        font = new Font(GameColors.FONTSTYLE, 1, 25)
+        font = new Font(GameColors.FONTSTYLE, 1, GameColors.SECOUND_FONTSIZE)
         foreground = fieldColor
         preferredSize = new Dimension(40, 40)
         background = GameColors.ROW_1_FOREGROUND
@@ -64,14 +64,14 @@ class LockUI(y:Int,controller: Controller, row: Row, fieldColor:Color) extends B
 
   val label = {
     new Label() {
+      font = new Font(GameColors.FONTSTYLE, 0, 20)
       if(row.locked){
         foreground = GameColors.ROW_BACKGROUND_DARKER
-        text = "\uD83D\uDD12"
+        text = "X"
       }else{
-        text = "\uD83D\uDD13"
+        text = "O"
         foreground = fieldColor
       }
-      font = new Font("Arial", 0, 30)
 
       preferredSize = new Dimension(40, 40)
     }

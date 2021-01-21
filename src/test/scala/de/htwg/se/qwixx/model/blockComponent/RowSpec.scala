@@ -1,6 +1,7 @@
 package de.htwg.se.qwixx.model.blockComponent
 
-import de.htwg.se.qwixx.model.blockComponent.blockBaseImpl.{Field, Row}
+import de.htwg.se.qwixx.model.blockComponent.blockBaseImpl.{Block, Field, Row}
+import de.htwg.se.qwixx.model.strategyComponent.strategyBaseImpl.RowsStrategy
 import de.htwg.se.qwixx.util.GameColors
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
@@ -61,4 +62,28 @@ class RowSpec extends AnyWordSpec with Matchers {
       d.checkField(0)
     }
   }
+  "Row" should {
+    "getCheckedFields" in {
+      val d = new Row(0, GameColors.ROW_1_BACKGROUND, "sorted")
+      d.fieldList(0).checkedState = true
+      d.getCheckedFields() shouldBe a[List[_]]
+
+    }
+  }
+  "RowStrategy" should {
+    "randomize" in {
+      val d = new Row(0, GameColors.ROW_1_BACKGROUND, "random")
+      d.fieldList(0).checkedState = true
+      d.getCheckedFields() shouldBe a[List[_]]
+
+    }
+  }
+  "RowsStrategy" should {
+    "random" in {
+      val rowsStrategy = RowsStrategy
+      rowsStrategy.setStrategy("random")
+
+    }
+  }
+
 }
