@@ -27,4 +27,6 @@ trait ControllerInterface extends Observable with Publisher{
   def getUndoManager():UndoManager
   def getGameState(): GameState.type
 
+  object UITyps
+
 }

@@ -17,16 +17,21 @@ object Main {
 
   def main(args: Array[String]): Unit = {
 
+    val UIType: Boolean = if (System.getenv("UI_TYPE").equals("gui")) true else false
+
     val injector = Guice.createInjector(new QwixxModule)
     val controller = injector.getInstance(classOf[ControllerInterface])
 
     val tui = new TextUI(controller)
-    val gui = new GraphicUI(controller)
+    if(UIType){
+      val gui = new GraphicUI(controller)
+    }
 
     controller.updateGame
 
     while (!controller.checkIfGameIsEnded) {
-        print(tui.run(scala.io.StdIn.readLine()))
+      print(tui.run(scala.io.StdIn.readLine()))
     }
+
   }
 }
