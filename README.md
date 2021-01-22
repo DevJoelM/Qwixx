@@ -14,13 +14,13 @@ By **Joel Merath**, **Tim Disch**
 ## The Game
 Qwixx is a dice game with six dice by Steffen Benndorf, which was published in 2012 by Nürnberger-Spielkarten-Verlag. The game was nominated for game of the year 2013 as one of three games, but could not prevail against the game Hanabi. In 2014 Qwixx won the Dutch Games Award.
 
-![Playground](images/qwixx_playground.png)
-Concept drawing.
+![Playground](images/qwixx_game.png)
+Illustration of the original game.
 
-![Playground_task09](images/pg_1_1.png)
+![Playground_task09](images/pg_1_2.png)
 
 
-![Playground_task09](images/pg_2_1.png)
+![Playground_task09](images/pg_2_2.png)
 
 
 ## License
