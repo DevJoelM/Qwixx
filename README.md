@@ -17,11 +17,12 @@ Qwixx is a dice game with six dice by Steffen Benndorf, which was published in 2
 ![Playground](images/qwixx_game.png)
 Illustration of the original game.
 
+## Graphical UI
 ![Playground_task09](images/pg_1_2.png)
-
+The clear Playground/Block of our game implementation.
 
 ![Playground_task09](images/pg_2_2.png)
-
+A few fields are checked and a row is locked.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
