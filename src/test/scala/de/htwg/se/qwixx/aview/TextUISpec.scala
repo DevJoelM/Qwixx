@@ -44,13 +44,13 @@ class TextUISpec extends AnyWordSpec with Matchers {
       val tui = new TextUI(ui)
       "should process commands" in {
 
-        for (i <- 0 to 11){
+        for (i <- 0 to 11) {
           val m = ui.isCombinationCheckable(0, 0, i)
-          m shouldBe a[(_,_)]
+          m shouldBe a[(_, _)]
         }
         for (i <- 0 to 11) {
           val m = ui.checkField(0, 0, i)
-          m shouldBe a[(_,_)]
+          m shouldBe a[(_, _)]
         }
 
         tui.processInputCommands("t")
@@ -61,15 +61,28 @@ class TextUISpec extends AnyWordSpec with Matchers {
         tui.processInputCommands("redo")
 
 
-
         tui.processInputCommands("1 1 l")
         ui.playerList(0).block.rowList(0).locked = true
-        ui.playerList(0).block.rowList(1).locked = true
-        ui.playerList(0).block.rowList(0).fieldList(0).checkedState=true
+
+        ui.playerList(0).block.rowList(0).fieldList(0).checkedState = true
         tui.processInputCommands("1 1 2")
 
+
+        ui.playerList(0).block.rowList(1).locked = true
+        ui.checkIfGameIsEnded()
+        tui.visualizePlayground()
+
         tui.processInputCommands("exit")
-        ui.gameState.handle(false)
+      }
+    }
+    "xml and json are used" should {
+      val ui = new Controller
+      val tui = new TextUI(ui)
+      "should process commands" in {
+        tui.processInputCommands("loadxml")
+        tui.processInputCommands("savexml")
+        tui.processInputCommands("loadjson")
+        tui.processInputCommands("savejson")
       }
     }
   }

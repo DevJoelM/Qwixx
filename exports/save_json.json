@@ -1,0 +1,39 @@
+{
+  "game" : [ [ "row", {
+    "Ridx" : "1",
+    "rowColor" : "#d81859",
+    "strat" : "sorted",
+    "checked" : [ {
+      "Fidx" : "2"
+    }, {
+      "Fidx" : "5"
+    } ]
+  } ], [ "row", {
+    "Ridx" : "2",
+    "rowColor" : "#ebbb78",
+    "strat" : "sorted",
+    "checked" : [ {
+      "Fidx" : "1"
+    }, {
+      "Fidx" : "4"
+    } ]
+  } ], [ "row", {
+    "Ridx" : "3",
+    "rowColor" : "#01a298",
+    "strat" : "reversed",
+    "checked" : [ {
+      "Fidx" : "3"
+    }, {
+      "Fidx" : "7"
+    } ]
+  } ], [ "row", {
+    "Ridx" : "4",
+    "rowColor" : "#299fe3",
+    "strat" : "reversed",
+    "checked" : [ {
+      "Fidx" : "2"
+    }, {
+      "Fidx" : "5"
+    } ]
+  } ] ]
+}

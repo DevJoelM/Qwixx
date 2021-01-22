@@ -9,12 +9,19 @@ object RowStrategy extends rowStrategyInterface{
 
   var strategy = strategySorted
 
+  /**
+   * Selects the desired row-strategy using a keyword.
+   */
   def setStrategy(x: String) = x match {
     case "sorted" => strategy = strategySorted
     case "reversed" => strategy = strategyReversed
     case "random" => strategy = strategyRandomized
   }
 
+  /**
+   * This strategy creates the row by a sorted order.
+   * @return A List of generated Fields (a Row).
+   */
   def strategySorted: Array[Field] = {
     val possibleValues_strategySorted = Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
     val fields = new Array[Field](11)
@@ -23,7 +30,10 @@ object RowStrategy extends rowStrategyInterface{
     }
     fields
   }
-
+  /**
+   * This strategy creates the row by a reversed sorted order.
+   * @return A List of generated Fields (a Row).
+   */
   def strategyReversed: Array[Field] = {
     val possibleValues_strategyReversed = Array(12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2)
     val fields = new Array[Field](11)
@@ -32,7 +42,10 @@ object RowStrategy extends rowStrategyInterface{
     }
     fields
   }
-
+  /**
+   * This strategy creates the row in a random order.
+   * @return A List of generated Fields (a Row).
+   */
   def strategyRandomized: Array[Field] = {
     val possibleValues_strategyRandomized = Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
     val randomizedValues = Random.shuffle(possibleValues_strategyRandomized.toList)

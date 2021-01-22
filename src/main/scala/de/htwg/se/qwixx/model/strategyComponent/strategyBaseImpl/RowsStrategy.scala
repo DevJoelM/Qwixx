@@ -8,11 +8,19 @@ object RowsStrategy extends rowStrategyInterface{
 
   var strategy = strategyClassic
 
+  /**
+   * Selects the desired block-strategy using a keyword.
+   */
   def setStrategy(x: String) = x match {
     case "classic" => strategy = strategyClassic
     case "random" => strategy = strategyRandom
   }
 
+  /**
+   * This strategy creates the original Qwixx playing field.
+   * Two times in the normal and two times in the reversed order.
+   * @return A list with the generated rows.
+   */
   def strategyClassic: Array[Row] = {
     val raws = new Array[Row](4)
     for (r <- 1 to 2) {
@@ -24,6 +32,10 @@ object RowsStrategy extends rowStrategyInterface{
     raws
   }
 
+  /**
+   * This strategy creates the playing field with a random order of the numbers.
+   * @return A list with the generated rows.
+   */
   def strategyRandom: Array[Row] = {
     val diceColors = Array(GameColors.ROW_1_BACKGROUND, GameColors.ROW_2_BACKGROUND, GameColors.ROW_3_BACKGROUND, GameColors.ROW_4_BACKGROUND)
     val raws = new Array[Row](4)
