@@ -11,11 +11,21 @@ By **Joel Merath**, **Tim Disch**
 * Wikipedia: https://de.wikipedia.org/wiki/Qwixx
 * Scala: https://docs.scala-lang.org/
 
-## The Game
+# The Game
 Qwixx is a dice game with six dice by Steffen Benndorf, which was published in 2012 by Nürnberger-Spielkarten-Verlag. The game was nominated for game of the year 2013 as one of three games, but could not prevail against the game Hanabi. In 2014 Qwixx won the Dutch Games Award.
 
 ![Playground](images/qwixx_game.png)
 Illustration of the original game.
+
+## Rules of the game
+* Rules: https://www.brettspiele-magazin.de/qwixx/
+
+# The SE-Project
+
+The content of our project was to create the basic functionality of the game. It is possible to play as a single player.
+## How to install
+
+To start the game properly, you just have to clone the Gitrepository and install the font in the "setup" folder. The best way to start the game is from IntelliJ.
 
 ## Graphical UI
 ![Playground_task09](images/pg_1_2.png)

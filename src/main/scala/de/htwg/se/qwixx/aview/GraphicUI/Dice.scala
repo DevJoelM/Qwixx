@@ -1,13 +1,12 @@
 package de.htwg.se.qwixx.aview.GraphicUI
 
-import de.htwg.se.qwixx.controller.controllerComponent.controllerBaseImpl.Controller
 import de.htwg.se.qwixx.model.gameComponent.gameBaseImpl.Dice
 import de.htwg.se.qwixx.util.GameColors
 
 import javax.swing.border.EmptyBorder
 import scala.swing._
 
-class DiceUI(controller:Controller,dice:Dice) extends BoxPanel(Orientation.Horizontal) {
+class DiceUI(dice:Dice) extends BoxPanel(Orientation.Horizontal) {
 
   background = GameColors.ROW_BACKGROUND_DARKER
   border  = new EmptyBorder(0,10,0,0)
