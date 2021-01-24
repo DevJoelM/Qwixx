@@ -4,4 +4,4 @@ ENV UI_TYPE=tui
 
 WORKDIR /qwixx
 ADD . /qwixx
-CMD sbt test
+CMD sbt run
