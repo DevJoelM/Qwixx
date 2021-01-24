@@ -25,6 +25,10 @@ class Dices extends gameInterface {
   val coloredDices: Array[Dice] = Array.ofDim[Dice](4)
   throwDices()
 
+  /**
+   * This function rerolls all six dice.
+   * @return
+   */
   def throwDices(): Boolean = {
     val random = new Random
 
@@ -40,6 +44,11 @@ class Dices extends gameInterface {
       newDices
     }
 
+    /**
+     * This function rolls both the white and the colored dice, depending on the offset.
+     * @param len
+     * @return
+     */
     def getIndexOffset(len:Int): Int ={
       if(len == 2) 0 else 2
     }
@@ -48,6 +57,13 @@ class Dices extends gameInterface {
     true
   }
 
+  /**
+   * This function determines all combinations of the dice.
+   * Both the combination of the colored with a white, and the white with each other.
+   * A list of possible combinations is returned. Containing the color,
+   * the value and separately the dice for possible functionalities.
+   * @return
+   */
   def updateDiceCombinations(): List[((Color,Int),(Dice, Dice))] = {
     var combinations = new ListBuffer[((Color, Int), (Dice, Dice))]()
     for(c <- coloredDices){

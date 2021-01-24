@@ -16,27 +16,47 @@ object GameColors {
   val SECOUND_FONTSIZE = 25
 
   //DARK Original
- val ROW_BACKGROUND = Color.decode("#D9DBEB")
- val ROW_BACKGROUND_DARKER = Color.decode("#F5F6FF")
- val FOREGROUND = Color.decode("#ABAEC9")
- val FOREGROUND_BRIGHTER = Color.decode("#8F93B4")
+ //val ROW_BACKGROUND = Color.decode("#D9DBEB")
+ //val ROW_BACKGROUND_DARKER = Color.decode("#F5F6FF")
+ //val FOREGROUND = Color.decode("#ABAEC9")
+ //val FOREGROUND_BRIGHTER = Color.decode("#8F93B4")
 
   //COLOR 1
-  val ROW_1_BACKGROUND = Color.decode("#D81859")
-  val ROW_1_FOREGROUND = Color.decode("#42C2D8")
-  val ROW_1_Blocked = Color.decode("#E96B95")
+  //val ROW_1_BACKGROUND = Color.decode("#D81859")
+  //val ROW_1_FOREGROUND = Color.decode("#42C2D8")
+  //val ROW_1_Blocked = Color.decode("#E96B95")
+//
+  //val ROW_2_BACKGROUND = Color.decode("#EBBB78")
+  //val ROW_2_FOREGROUND = new Color(130, 78, 255)
+  //val ROW_2_Blocked = Color.decode("#FFDBA8")
+//
+  //val ROW_3_BACKGROUND = Color.decode("#01A298")
+  //val ROW_3_FOREGROUND = new Color(255, 102, 78)
+  //val ROW_3_Blocked = Color.decode("#55C0BA")
+//
+  //val ROW_4_BACKGROUND = Color.decode("#299FE3")
+  //val ROW_4_FOREGROUND = new Color(255, 155, 78)
+  //val ROW_4_Blocked = Color.decode("#6FBEEC")
 
-  val ROW_2_BACKGROUND = Color.decode("#EBBB78")
+  ////DARK Original
+  val ROW_BACKGROUND = Color.decode("#1C2040")
+  val ROW_BACKGROUND_DARKER = new Color(18, 22, 52)
+  val FOREGROUND = Color.decode("#D8DCFF")
+  val FOREGROUND_BRIGHTER = new Color(165,168,197)
+
+  //COLOR 1
+  val ROW_1_BACKGROUND = new Color(62, 101, 213)
+  val ROW_1_FOREGROUND = new Color(78, 124, 255)
+  val ROW_1_Blocked = new Color(24, 34, 76)
+  val ROW_2_BACKGROUND = new Color(96, 62, 213)
   val ROW_2_FOREGROUND = new Color(130, 78, 255)
-  val ROW_2_Blocked = Color.decode("#FFDBA8")
-
-  val ROW_3_BACKGROUND = Color.decode("#01A298")
+  val ROW_2_Blocked = new Color(29, 28, 76)
+  val ROW_3_BACKGROUND = new Color(213, 78, 62)
   val ROW_3_FOREGROUND = new Color(255, 102, 78)
-  val ROW_3_Blocked = Color.decode("#55C0BA")
-
-  val ROW_4_BACKGROUND = Color.decode("#299FE3")
+  val ROW_3_Blocked = new Color(47, 30, 53)
+  val ROW_4_BACKGROUND = new Color(213, 127, 62)
   val ROW_4_FOREGROUND = new Color(255, 155, 78)
-  val ROW_4_Blocked = Color.decode("#6FBEEC")
+  val ROW_4_Blocked = new Color(47, 38, 53)
 
 
   val DICE_COLORS = Array(GameColors.ROW_1_BACKGROUND, GameColors.ROW_2_BACKGROUND, GameColors.ROW_3_BACKGROUND,
@@ -55,38 +75,20 @@ object GameColors {
   //val ROW_1_BACKGROUND = Color.decode("#037391")
   //val ROW_1_FOREGROUND = Color.decode("#42C2D8")
   //val ROW_1_Blocked = Color.decode("#4296AC")
-  //
+//
   //val ROW_2_BACKGROUND = Color.decode("#15ADB6")
   //val ROW_2_FOREGROUND = new Color(130, 78, 255)
   //val ROW_2_Blocked = Color.decode("#62C8CE")
-  //
+//
   //val ROW_3_BACKGROUND = Color.decode("#F6B933")
   //val ROW_3_FOREGROUND = new Color(255, 102, 78)
   //val ROW_3_Blocked = Color.decode("#F8D076")
-  //
+//
   //val ROW_4_BACKGROUND = Color.decode("#F7923E")
   //val ROW_4_FOREGROUND = new Color(255, 155, 78)
   //val ROW_4_Blocked = Color.decode("#FCB478")
 
-  ////DARK Original
-  //val ROW_BACKGROUND = Color.decode("#1C2040")
-  //val ROW_BACKGROUND_DARKER = new Color(18, 22, 52)
-  //val FOREGROUND = Color.decode("#D8DCFF")
-  //val FOREGROUND_BRIGHTER = new Color(165,168,197)
-//
-  ////COLOR 1
-  //val ROW_1_BACKGROUND = new Color(62, 101, 213)
-  //val ROW_1_FOREGROUND = new Color(78, 124, 255)
-  //val ROW_1_Blocked = new Color(24, 34, 76)
-  //val ROW_2_BACKGROUND = new Color(96, 62, 213)
-  //val ROW_2_FOREGROUND = new Color(130, 78, 255)
-  //val ROW_2_Blocked = new Color(29, 28, 76)
-  //val ROW_3_BACKGROUND = new Color(213, 78, 62)
-  //val ROW_3_FOREGROUND = new Color(255, 102, 78)
-  //val ROW_3_Blocked = new Color(47, 30, 53)
-  //val ROW_4_BACKGROUND = new Color(213, 127, 62)
-  //val ROW_4_FOREGROUND = new Color(255, 155, 78)
-  //val ROW_4_Blocked = new Color(47, 38, 53)
+
 
 
   //COLOR Original

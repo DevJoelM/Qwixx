@@ -25,7 +25,7 @@ Illustration of the original game.
 The content of our project was to create the basic functionality of the game. It is possible to play as a single player.
 ## How to install
 
-To start the game properly, you just have to clone the Gitrepository and install the font in the "setup" folder. The best way to start the game is from IntelliJ.
+To start the game properly, you just have to clone the Git-repository and install the font in the "setup" folder. The best way to start the game is from IntelliJ.
 
 ## Graphical UI
 ![Playground_task09](images/pg_1_2.png)

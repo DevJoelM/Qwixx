@@ -88,10 +88,10 @@ class GraphicUI(controller: ControllerInterface) extends Frame with UIType with 
           maximumSize = new Dimension(70,40)
           val dices = controller.getDicesList()
           for(x <- 2 to 5){
-            contents += new DiceUI(controller.getController(),dices(x))
+            contents += new DiceUI(dices(x))
           }
           for(x <- 0 to 1){
-            contents += new DiceUI(controller.getController(),dices(x))
+            contents += new DiceUI(dices(x))
           }
         },
         constraints(14, 0, gridheight = 7, gridwidth = 2 ,fill = GridBagPanel.Fill.Both)

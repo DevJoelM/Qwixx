@@ -67,7 +67,6 @@ class RowSpec extends AnyWordSpec with Matchers {
       val d = new Row(0, GameColors.ROW_1_BACKGROUND, "sorted")
       d.fieldList(0).checkedState = true
       d.getCheckedFields() shouldBe a[List[_]]
-
     }
   }
   "RowStrategy" should {

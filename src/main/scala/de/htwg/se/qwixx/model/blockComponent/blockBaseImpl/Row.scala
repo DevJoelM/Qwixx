@@ -29,7 +29,7 @@ class Row(val rowIdx: Integer, val colorName: Color, val strat: String) extends 
   def lockRow(): (Boolean, String) = {
 
     if (!locked) {
-      if (getCheckedFieldCount() >= 1) {
+      if (getCheckedFieldCount() >= 5) {
         locked = true
         updateFields()
         (true, String.format("Row (%s) successfully locked!", (rowIdx + 1).toString))

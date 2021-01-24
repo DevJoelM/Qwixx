@@ -11,7 +11,7 @@ object RowsStrategy extends rowStrategyInterface{
   /**
    * Selects the desired block-strategy using a keyword.
    */
-  def setStrategy(x: String) = x match {
+  def setStrategy(x: String): Unit = x match {
     case "classic" => strategy = strategyClassic
     case "random" => strategy = strategyRandom
   }
@@ -37,7 +37,8 @@ object RowsStrategy extends rowStrategyInterface{
    * @return A list with the generated rows.
    */
   def strategyRandom: Array[Row] = {
-    val diceColors = Array(GameColors.ROW_1_BACKGROUND, GameColors.ROW_2_BACKGROUND, GameColors.ROW_3_BACKGROUND, GameColors.ROW_4_BACKGROUND)
+    val diceColors = Array(GameColors.ROW_1_BACKGROUND, GameColors.ROW_2_BACKGROUND,
+      GameColors.ROW_3_BACKGROUND, GameColors.ROW_4_BACKGROUND)
     val raws = new Array[Row](4)
     for (r <- 1 to 4) {
       raws(r - 1) = new Row(r, diceColors(r - 1), "random")
